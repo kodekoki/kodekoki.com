@@ -1,6 +1,7 @@
-import React from "react"
-import kebabCase from "../utils/kebabCase"
-import { graphql, Link } from "gatsby"
+import React from 'react'
+import kebabCase from '../utils/kebabCase'
+import { graphql, Link } from 'gatsby'
+import { object } from 'prop-types'
 
 const BlogCategory = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
@@ -8,8 +9,10 @@ const BlogCategory = ({ data, pageContext }) => {
   return (
     <>
       <h1>Categories:</h1>
-      {pageContext.allCategories.map(cat => (
-        <Link to={`/blog/category/${kebabCase(cat)}`}>{cat}</Link>
+      {pageContext.allCategories.map((cat, i) => (
+        <Link key={i} to={`/blog/category/${kebabCase(cat)}`}>
+          {cat}
+        </Link>
       ))}
       <br />
 
@@ -25,9 +28,11 @@ const BlogCategory = ({ data, pageContext }) => {
             <p>{node.frontmatter.date}</p>
             <p>By {node.frontmatter.author}</p>
             <p>
-              In:{" "}
-              {node.frontmatter.category.map(cat => (
-                <Link to={`/blog/category/${kebabCase(cat)}`}>{cat}</Link>
+              In:{' '}
+              {node.frontmatter.category.map((cat, i) => (
+                <Link key={i} to={`/blog/category/${kebabCase(cat)}`}>
+                  {cat}
+                </Link>
               ))}
             </p>
           </>
@@ -44,7 +49,7 @@ const BlogCategory = ({ data, pageContext }) => {
               : `/blog/category/${category}/page/${index}`
 
           return (
-            <li>
+            <li key={i}>
               {pageContext.currentPage === index ? (
                 <span>{index}</span>
               ) : (
@@ -57,7 +62,10 @@ const BlogCategory = ({ data, pageContext }) => {
     </>
   )
 }
-
+BlogCategory.propTypes = {
+  data: object,
+  pageContext: object,
+}
 export default BlogCategory
 
 export const query = graphql`

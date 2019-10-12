@@ -1,5 +1,6 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { object } from 'prop-types'
+import { graphql } from 'gatsby'
 
 const BlogPost = ({ data }) => {
   const { markdownRemark } = data
@@ -16,6 +17,9 @@ const BlogPost = ({ data }) => {
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </>
   )
+}
+BlogPost.propTypes = {
+  data: object,
 }
 
 export default BlogPost

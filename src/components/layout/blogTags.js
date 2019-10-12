@@ -1,6 +1,7 @@
-import React from "react"
-import kebabCase from "../utils/kebabCase"
-import { graphql, Link } from "gatsby"
+import React from 'react'
+import { object } from 'prop-types'
+import kebabCase from '../utils/kebabCase'
+import { graphql, Link } from 'gatsby'
 
 const BlogTags = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
@@ -8,8 +9,10 @@ const BlogTags = ({ data, pageContext }) => {
   return (
     <>
       <h1>Tags:</h1>
-      {pageContext.allTags.map(tag => (
-        <Link to={`/blog/tags/${kebabCase(tag)}`}>{tag}</Link>
+      {pageContext.allTags.map((tag, i) => (
+        <Link key={i} to={`/blog/tags/${kebabCase(tag)}`}>
+          {tag}
+        </Link>
       ))}
       <br />
 
@@ -25,9 +28,11 @@ const BlogTags = ({ data, pageContext }) => {
             <p>{node.frontmatter.date}</p>
             <p>By {node.frontmatter.author}</p>
             <p>
-              In:{" "}
-              {node.frontmatter.tags.map(tag => (
-                <Link to={`/blog/tags/${kebabCase(tag)}`}>{tag}</Link>
+              In:{' '}
+              {node.frontmatter.tags.map((tag, i) => (
+                <Link key={i} to={`/blog/tags/${kebabCase(tag)}`}>
+                  {tag}
+                </Link>
               ))}
             </p>
           </>
@@ -44,7 +49,7 @@ const BlogTags = ({ data, pageContext }) => {
               : `/blog/tags/${tags}/page/${index}`
 
           return (
-            <li>
+            <li key={i}>
               {pageContext.currentPage === index ? (
                 <span>{index}</span>
               ) : (
@@ -56,6 +61,11 @@ const BlogTags = ({ data, pageContext }) => {
       </ul>
     </>
   )
+}
+
+BlogTags.propTypes = {
+  data: object,
+  pageContext: object,
 }
 
 export default BlogTags
