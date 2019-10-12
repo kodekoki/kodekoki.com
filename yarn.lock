@@ -4339,6 +4339,15 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
+emotion-theming@^10.0.19:
+  version "10.0.19"
+  resolved "https://registry.yarnpkg.com/emotion-theming/-/emotion-theming-10.0.19.tgz#66d13db74fccaefad71ba57c915b306cf2250295"
+  integrity sha512-dQRBPLAAQ6eA8JKhkLCIWC8fdjPbiNC1zNTdFF292h9amhZXofcNGUP7axHoHX4XesqQESYwZrXp53OPInMrKw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@emotion/weak-memoize" "0.2.4"
+    hoist-non-react-statics "^3.3.0"
+
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
@@ -5646,10 +5655,10 @@ gatsby-plugin-manifest@^2.2.21:
     semver "^5.7.1"
     sharp "^0.23.1"
 
-gatsby-plugin-offline@^3.0.13:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.0.13.tgz#265a9b06aee83451740b0a52cb73f42b8cf636bc"
-  integrity sha512-VAjVAArWTJy1Fj/2o+Myd4FZxlU89O5Lm9PAopg78I+xSSEfDVF6lKs5e/KaSY24gKl8HNZPeIJESdUs7/7dRw==
+gatsby-plugin-offline@^3.0.14:
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.0.14.tgz#56021724d0ffb5de3b70ed3de873c4d9dcd80e0e"
+  integrity sha512-eMCw2mD2mr77xck/6/0EV6wO5rcXPk+kkQyiw8lgqx4eJ5AFmUp1U6FEVibFjm8yqvDlA9ldhvtxFKQSaQPNAQ==
   dependencies:
     "@babel/runtime" "^7.6.3"
     cheerio "^1.0.0-rc.3"

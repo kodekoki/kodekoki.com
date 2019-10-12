@@ -26,13 +26,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `arlan.net`,
         short_name: `arlan`,
         start_url: `/`,
         background_color: configs.backgroundColor,
         theme_color: configs.themeColor,
         display: `standalone`,
-        icon: `src/images/arlan.net-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -164,6 +164,6 @@ module.exports = {
     'gatsby-plugin-robots-txt',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }

@@ -1,48 +1,53 @@
-import { darken, lighten } from 'polished'
-
-const brand = {
-  primary: '#573EDE',
-  secondary: '#EEF4F2',
+const fonts = {
+  roboto: `Roboto, Segoe UI, Tahoma, Geneva, Verdana, sans-serif`,
+  ptserif: `PT Serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Helvetica Neue, sans-serif`,
 }
 
-const colors = {
-  primary_light: `${lighten(0.55, brand.primary)}`,
-  gray: '#D3D3D3',
+const lightColor = {
+  primary: '#004271',
+  secondary: '#004271',
+  gray: '#bbb',
+  darkGray: '#6b6b6b',
   black: '#000',
   white: '#fff',
-  bg_color: '#fafafa',
-  body_color: '#222426',
-  link_color: brand.primary,
-  link_color_hover: `${darken(0.07, brand.primary)}`,
-  red: '#E75248',
-  green: '#17A974',
-  blue: '#327CDC',
-  yellow: '#FFB700',
-  purple: '#8242F6',
-  purple_dark: '#231c42',
+  background: '#fff',
+  body: '#fff',
+  font: 'hsla(0, 0%, 0%, 0.8)',
+  secondaryFont: '#676767',
+  link: 'hsla(0, 0%, 0%, 0.8)',
+  titleHeader: '#444',
+  linkHover: '#004271',
+  green: '#2ecc71',
+  lightBlue: '#00cec9',
+  orange: '#f0932b',
+  yellow: '#fdc42d',
 }
 
 const theme = {
-  colors,
-  //   fonts,
-  brand,
+  fonts,
   breakpoints: {
     xs: '400px',
     s: '600px',
     m: '900px',
     l: '1200px',
   },
-  container: {
-    base: '100rem',
-    text: '55rem',
+  wide: {
+    normal: '800px',
+    over: '860px',
+    full: '100%',
   },
   spacer: {
     horizontal: '2rem',
     vertical: '3rem',
   },
   transition: {
-    ease: 'all 200ms ease',
+    ease: 'all 250ms ease-in-out',
   },
 }
 
-export default theme
+const themes = {
+  light: { ...theme, colors: lightColor },
+  dark: { ...theme, colors: lightColor },
+}
+
+export default themes
