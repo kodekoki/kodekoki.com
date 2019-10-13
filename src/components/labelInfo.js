@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { string } from 'prop-types'
+import { string, node, oneOfType } from 'prop-types'
 
 const rootStyle = css`
   background: #6b6b6b;
@@ -36,7 +36,7 @@ const LabelInfo = ({ field, value, color }) => (
 )
 LabelInfo.propTypes = {
   field: string,
-  value: string,
+  value: oneOfType([string, node]),
   color: string,
 }
 export default LabelInfo

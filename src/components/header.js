@@ -52,7 +52,7 @@ const menus = [
     title: 'Blog',
   },
   {
-    path: '#',
+    path: '/',
     title: 'About me',
   },
 ]

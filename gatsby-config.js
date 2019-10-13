@@ -10,6 +10,7 @@ module.exports = {
     description: configs.siteDescription,
     author: configs.author,
     siteUrl: configs.siteUrl,
+    logo: `${__dirname}/src/images/logo.png`,
     keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
   },
   plugins: [

@@ -119,7 +119,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // *** BLOG LIST LAYOUT***
     const blogListLayout = path.resolve(`./src/components/layout/blogList.js`)
-    const postsPerPage = 7
+    const postsPerPage = 10
     // const postsWithoutFeatured = posts.filter(({ node }) => {
     //   return !node.frontmatter.featured
     // })
