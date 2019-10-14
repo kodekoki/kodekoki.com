@@ -44,7 +44,8 @@ const articleStyle = theme => css`
     color: ${theme.colors.darkGray};
   }
   & img {
-    margin: ${theme.spacer.vertical} 0;
+    margin: ${theme.spacer.horizontal} 0;
+    border-radius: 0.2rem;
   }
   & main > div > img {
     width: 100%;
@@ -81,8 +82,6 @@ const styleNext = theme => css`
 
 const BlogPost = ({ data, pageContext }) => {
   const { next, previous } = pageContext
-  console.log('TCL: BlogPost -> previous', previous)
-  console.log('TCL: BlogPost -> next', next)
   const { markdownRemark } = data
   const imageSource = markdownRemark.frontmatter.image.childImageSharp.fluid.src
   const { title, date, category, tags } = markdownRemark.frontmatter

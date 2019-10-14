@@ -124,7 +124,6 @@ exports.createPages = ({ graphql, actions }) => {
     //   return !node.frontmatter.featured
     // })
     const numPages = Math.ceil(posts.length / postsPerPage)
-    // console.log("TCL: numPages", numPages)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({

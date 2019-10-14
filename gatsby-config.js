@@ -10,7 +10,7 @@ module.exports = {
     description: configs.siteDescription,
     author: configs.author,
     siteUrl: configs.siteUrl,
-    logo: `${__dirname}/src/images/logo.png`,
+    logo: `https://github.com/arrlancore/arlan.net/blob/master/src/images/logo-small.png?raw=true`,
     keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
   },
   plugins: [
@@ -20,6 +20,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
       },
     },
     `gatsby-transformer-sharp`,

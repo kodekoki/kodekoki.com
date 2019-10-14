@@ -1,64 +1,23 @@
 import React from 'react'
 import { object } from 'prop-types'
-import kebabCase from '../utils/kebabCase'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Layout from './index'
+import SEO from '../seo'
+import PostList from '../postList'
 
 const BlogTags = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
-
+  const pageTitle = `Tag: ${pageContext.tag}`
   return (
     <>
-      <h1>Tags:</h1>
-      {pageContext.allTags.map((tag, i) => (
-        <Link key={i} to={`/blog/tags/${kebabCase(tag)}`}>
-          {tag}
-        </Link>
-      ))}
-      <br />
-
-      {allMarkdownRemark.edges.map(({ node }) => {
-        const imageSource = node.frontmatter.image.childImageSharp.fluid.src
-
-        return (
-          <>
-            <Link to={node.fields.slug}>
-              <img src={imageSource} alt={node.frontmatter.title} />
-              <h1>{node.frontmatter.title}</h1>
-            </Link>
-            <p>{node.frontmatter.date}</p>
-            <p>By {node.frontmatter.author}</p>
-            <p>
-              In:{' '}
-              {node.frontmatter.tags.map((tag, i) => (
-                <Link key={i} to={`/blog/tags/${kebabCase(tag)}`}>
-                  {tag}
-                </Link>
-              ))}
-            </p>
-          </>
-        )
-      })}
-
-      <ul>
-        {Array.from({ length: pageContext.numPages }).map((item, i) => {
-          const index = i + 1
-          const tags = kebabCase(pageContext.tags)
-          const link =
-            index === 1
-              ? `/blog/tags/${tags}`
-              : `/blog/tags/${tags}/page/${index}`
-
-          return (
-            <li key={i}>
-              {pageContext.currentPage === index ? (
-                <span>{index}</span>
-              ) : (
-                <a href={link}>{index}</a>
-              )}
-            </li>
-          )
-        })}
-      </ul>
+      <Layout>
+        <SEO title={pageTitle} />
+        <PostList
+          title={pageTitle}
+          data={allMarkdownRemark}
+          pageContext={pageContext}
+        />
+      </Layout>
     </>
   )
 }
@@ -83,10 +42,10 @@ export const query = graphql`
           fields {
             slug
           }
+          excerpt
           frontmatter {
             title
-            date
-            author
+            date(formatString: "MMMM DD, YYYY")
             category
             tags
             image {

@@ -3,7 +3,7 @@ title: Gatsby Amaze
 date: 2019-02-21
 author: Gatsby
 featured: true
-image: ./image.jpg
+image: ./imagebg2.jpg
 published: true
 description: The fundamental blogpost that you want to use for all of your post  starting from now until next 5 year
 category:

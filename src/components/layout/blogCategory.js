@@ -1,65 +1,22 @@
 import React from 'react'
-import kebabCase from '../utils/kebabCase'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { object } from 'prop-types'
+import Layout from './index'
+import SEO from '../seo'
+import PostList from '../postList'
 
 const BlogCategory = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
-
+  const pageTitle = `Category: ${pageContext.category}`
   return (
-    <>
-      <h1>Categories:</h1>
-      {pageContext.allCategories.map((cat, i) => (
-        <Link key={i} to={`/blog/category/${kebabCase(cat)}`}>
-          {cat}
-        </Link>
-      ))}
-      <br />
-
-      {allMarkdownRemark.edges.map(({ node }) => {
-        const imageSource = node.frontmatter.image.childImageSharp.fluid.src
-
-        return (
-          <>
-            <Link to={node.fields.slug}>
-              <img src={imageSource} alt={node.frontmatter.title} />
-              <h1>{node.frontmatter.title}</h1>
-            </Link>
-            <p>{node.frontmatter.date}</p>
-            <p>By {node.frontmatter.author}</p>
-            <p>
-              In:{' '}
-              {node.frontmatter.category.map((cat, i) => (
-                <Link key={i} to={`/blog/category/${kebabCase(cat)}`}>
-                  {cat}
-                </Link>
-              ))}
-            </p>
-          </>
-        )
-      })}
-
-      <ul>
-        {Array.from({ length: pageContext.numPages }).map((item, i) => {
-          const index = i + 1
-          const category = kebabCase(pageContext.category)
-          const link =
-            index === 1
-              ? `/blog/category/${category}`
-              : `/blog/category/${category}/page/${index}`
-
-          return (
-            <li key={i}>
-              {pageContext.currentPage === index ? (
-                <span>{index}</span>
-              ) : (
-                <a href={link}>{index}</a>
-              )}
-            </li>
-          )
-        })}
-      </ul>
-    </>
+    <Layout>
+      <SEO title={pageTitle} />
+      <PostList
+        title={pageTitle}
+        data={allMarkdownRemark}
+        pageContext={pageContext}
+      />
+    </Layout>
   )
 }
 BlogCategory.propTypes = {
@@ -81,10 +38,10 @@ export const query = graphql`
           fields {
             slug
           }
+          excerpt
           frontmatter {
             title
-            date
-            author
+            date(formatString: "MMMM DD, YYYY")
             category
             image {
               childImageSharp {

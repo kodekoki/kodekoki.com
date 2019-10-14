@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { bool } from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from '../../context'
 
@@ -14,7 +14,7 @@ import Header from '../header'
 import Footer from '../footer'
 import './layout.css'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showHeader, showFooter }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +29,11 @@ const Layout = ({ children }) => {
     <>
       <ThemeProvider>
         <div>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          {showHeader ? (
+            <Header siteTitle={data.site.siteMetadata.title} />
+          ) : (
+            ''
+          )}
           <div
             style={{
               // margin: `0 auto`,
@@ -40,13 +44,13 @@ const Layout = ({ children }) => {
           >
             <main
               style={{
-                minHeight: 'calc(100vh - 232px)',
+                minHeight: 'calc(100vh - 224px)',
                 height: '100%',
               }}
             >
               {children}
             </main>
-            <Footer />
+            {showFooter ? <Footer /> : ''}
           </div>
         </div>
       </ThemeProvider>
@@ -56,6 +60,13 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  showFooter: bool,
+  showHeader: bool,
+}
+
+Layout.defaultProps = {
+  showFooter: true,
+  showHeader: true,
 }
 
 export default Layout

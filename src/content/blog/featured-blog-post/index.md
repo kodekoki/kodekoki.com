@@ -4,7 +4,7 @@ date: 2019-01-21
 author: Gatsby
 featured: true
 published: true
-image: ./image.png
+image: ./imagebg.jpg
 description: The fundamental blogpost that you want to use for all of your post  starting from now until next 5 year
 category:
   - LoL
