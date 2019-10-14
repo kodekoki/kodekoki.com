@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
-import useInterval from '../components/useInterval'
+// import useInterval from '../components/useInterval'
 import Software from '../images/software.png'
 import Background from '../assets/home-background.svg'
 import LinkedIn from '../assets/icon/linkedin.svg'
@@ -93,16 +93,16 @@ const menuStyle = theme => css`
 `
 
 const HomePage = () => {
-  let [count, setCount] = React.useState(0)
-  let [delay, setDelay] = React.useState(1000)
+  // let [count, setCount] = React.useState(0)
+  // let [delay, setDelay] = React.useState(1000)
 
-  useInterval(() => {
-    // Your custom logic here
-    setCount(count + 1)
-    if (count >= 10) {
-      setDelay(null)
-    }
-  }, delay)
+  // useInterval(() => {
+  //   // Your custom logic here
+  //   setCount(count + 1)
+  //   if (count >= 10) {
+  //     setDelay(null)
+  //   }
+  // }, delay)
   return (
     <ThemeProvider>
       <div css={rootStyle}>
@@ -131,7 +131,7 @@ const HomePage = () => {
             <section>
               <div>
                 <h2 style={{ fontSize: '4rem' }}>
-                  JOHN <span style={{ fontWeight: 700 }}>DOE</span>
+                  DWIKI <span style={{ fontWeight: 700 }}>ARLAN</span>
                 </h2>
               </div>
               <div
@@ -161,7 +161,7 @@ const HomePage = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://github.com"
+                  href="https://github.com/arrlancore"
                 >
                   <Github />
                 </a>
@@ -170,7 +170,7 @@ const HomePage = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/dwiki-arlan-62645770/"
                 >
                   <LinkedIn />
                 </a>
@@ -179,7 +179,7 @@ const HomePage = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://twitter.com"
+                  href="https://twitter.com/arrlancore"
                 >
                   <Twitter />
                 </a>

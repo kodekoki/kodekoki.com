@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import Layout from '../layout'
 import SEO from '../seo'
+import config from '../../../configs'
 import LabelInfo from '../labelInfo'
 
 const wideNormal = theme => css`
@@ -72,12 +73,16 @@ const tagStyle = css`
 const styleNext = theme => css`
   display: inline;
   margin: 10px 30px 5px 0;
-  border-bottom: 2px dashed;
   font-weight: 400;
   line-height: 2.5;
   text-decoration: none;
   cursor: pointer;
-  color: ${theme.colors.primary};
+  padding: 0.25rem 1rem;
+  color: ${theme.colors.background};
+  background: ${theme.colors.black};
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 const BlogPost = ({ data, pageContext }) => {
@@ -87,23 +92,24 @@ const BlogPost = ({ data, pageContext }) => {
   const { title, date, category, tags } = markdownRemark.frontmatter
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={`${title} | Blog`} image={config.siteUrl + imageSource} />
       <article css={articleStyle}>
         <section css={wideNormal}>
           <h1>{title}</h1>
           <div>
-            {(category || []).map((categoryName, idx) => (
-              <Link
-                key={idx}
-                to={`/blog/category/${categoryName.toLowerCase()}`}
-              >
-                <LabelInfo
-                  field="category"
-                  value={categoryName}
-                  color="#2ecc71"
-                />
-              </Link>
-            ))}
+            <LabelInfo
+              field="category"
+              value={(category || []).map((categoryName, idx) => (
+                <Link
+                  style={{ color: '#fff' }}
+                  key={idx}
+                  to={`/blog/category/${categoryName.toLowerCase()}`}
+                >
+                  {`${idx > 0 ? ', ' : ''}${categoryName}`}
+                </Link>
+              ))}
+              color="#2ecc71"
+            />
             <LabelInfo field="post date" value={date} color="#00cec9" />
             <LabelInfo
               field="read time"

@@ -12,7 +12,7 @@ const ReadmoreStyle = theme => css`
   line-height: 2.5;
   text-decoration: none;
   cursor: pointer;
-  color: ${theme.colors.primary};
+  color: ${theme.colors.lightBlue};
   font-family: ${theme.fonts.roboto};
 `
 
@@ -61,10 +61,10 @@ const wideNormal = theme => css`
   padding: 0 0.25rem;
 `
 
-const titleStyle = css`
+const titleStyle = theme => css`
   margin-bottom: 10px;
   margin-top: 16px;
-  color: rgb(0, 66, 113);
+  color: ${theme.colors.black};
   font-weight: 700;
   text-transform: capitalize;
 `
@@ -123,7 +123,7 @@ const PostList = ({ data, pageContext, title }) => {
                   </Link>
                   <LabelInfo
                     field={date}
-                    color="#2ecc71"
+                    color="#00cec9"
                     value={
                       <span css={categoryStyle}>
                         {(category || []).map((categoryName, idx) => (

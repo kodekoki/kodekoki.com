@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import Github from '../assets/icon/github.svg'
+import Twitter from '../assets/icon/twitter.svg'
+import Rss from '../assets/icon/rss.svg'
 
 const wideNormal = theme => css`
   display: block;
@@ -8,6 +11,9 @@ const wideNormal = theme => css`
   max-width: ${theme.wide.normal};
   margin: 0 auto;
   padding: 0 0.25rem;
+  & svg {
+    max-width: 24px;
+  }
 `
 
 const Footer = styled.div`
@@ -30,14 +36,17 @@ const footerLink = [
   {
     title: 'twitter',
     url: 'https://twitter.com/arrlancore',
+    icon: Twitter,
   },
   {
     title: 'github',
     url: 'https://github.com/arrlancore',
+    icon: Github,
   },
   {
     title: 'rss feed',
     url: '/blog/rss.xml',
+    icon: Rss,
   },
 ]
 const Footers = () => (
@@ -51,7 +60,7 @@ const Footers = () => (
           target="_blank"
           css={linkStyle}
         >
-          {link.title}
+          <link.icon title={link.title} />
         </a>
       ))}
     </section>
