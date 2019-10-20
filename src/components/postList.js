@@ -7,13 +7,15 @@ import LabelInfo from './labelInfo'
 const ReadmoreStyle = theme => css`
   display: inline;
   margin: 10px 30px 5px 0;
-  border-bottom: 2px dashed;
-  font-weight: 500;
+  font-size: 14px;
   line-height: 2.5;
   text-decoration: none;
   cursor: pointer;
   color: ${theme.colors.lightBlue};
   font-family: ${theme.fonts.roboto};
+  & :hover {
+    color: ${theme.colors.darkGray};
+  }
 `
 
 const contentStyle = theme => css`
@@ -29,7 +31,7 @@ const contentStyle = theme => css`
     box-shadow: none;
     transition: all ease 0.2s;
     transform: scale(1);
-    box-shadow: 0 5px 10px 5px rgba(0, 64, 128, 0.03);
+    box-shadow: 3px 3px 15px 5px rgba(0, 64, 128, 0.07);
     display: flex;
   }
 
@@ -44,6 +46,12 @@ const contentStyle = theme => css`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    top: 8px;
+    filter: grayscale(100%);
+    transition: all ease-in 1s;
+    &:hover {
+      filter: grayscale(0);
+    }
   }
 
   & p {
@@ -141,7 +149,7 @@ const PostList = ({ data, pageContext, title }) => {
                 <p>{node.excerpt}</p>
                 <div>
                   <Link to={node.fields.slug}>
-                    <span css={ReadmoreStyle}>read more</span>
+                    <span css={ReadmoreStyle}>read more +</span>
                   </Link>
                 </div>
               </div>

@@ -5,7 +5,6 @@ import { string, node, oneOfType } from 'prop-types'
 const rootStyle = css`
   background: #6b6b6b;
   font-size: 12px;
-  border-radius: 4px;
   padding: 3px 0;
   margin: 4px 8px 4px 0;
 `
@@ -18,7 +17,6 @@ const fieldStyle = css`
 const valueStyle = theme => css`
   color: ${theme.colors.background};
   padding: 3px 6px;
-  border-radius: 0 4px 4px 0;
 `
 
 const LabelInfo = ({ field, value, color }) => (
