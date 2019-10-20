@@ -1,12 +1,21 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { css } from '@emotion/core'
+import { css, keyframes } from '@emotion/core'
 import Software from '../images/software.png'
 import LinkedIn from '../assets/icon/linkedin.svg'
 import Github from '../assets/icon/github.svg'
 import Twitter from '../assets/icon/twitter.svg'
 import { ThemeProvider } from '../context'
 import SEO from '../components/seo'
+
+const boxOpac = keyframes`
+from {
+  opacity: 0.5;
+}
+to {
+  opacity: 1;
+}
+`
 
 const rootStyle = theme => css`
   display: flex;
@@ -35,6 +44,8 @@ const rootStyle = theme => css`
       height: 100%;
       z-index: 2;
       background: linear-gradient(109deg, #ffffff 56%, #01cec9 56%);
+      animation: ${boxOpac} 0.5s ease-in;
+      opacity: 1;
     }
   }
   & h2 {
