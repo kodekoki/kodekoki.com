@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { SplashImageObj } from '../theme/styles'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -16,17 +17,27 @@ import Img from 'gatsby-image'
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "software.png" }) {
+      placeholderImage: file(relativePath: { eq: "banner.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 1000, height: 1100) {
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
     }
   `)
+  console.log('TCL: Image -> data', data)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fixed={data.placeholderImage.childImageSharp.fixed}
+      alt={'image banner'}
+      style={{ margin: '0 auto', height: '100%', flex: 1 }}
+      imgStyle={SplashImageObj}
+    />
+  )
+
+  // return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default Image

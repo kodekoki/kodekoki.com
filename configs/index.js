@@ -1,6 +1,6 @@
 module.exports = {
-  siteTitle: 'arlan.net', // Navigation and Site Title
-  siteUrl: process.env.ROOT_URL || 'https://arlan.net', // Domain of your site. No trailing slash!
+  siteTitle: 'KodeKoki', // Navigation and Site Title
+  siteUrl: process.env.ROOT_URL || 'https://kodekoki.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription: 'Let see another story from a dreamer software developer',

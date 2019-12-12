@@ -47,8 +47,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/src/content/video`,
+        name: `video`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/snippet`,
+        name: `snippet`,
       },
     },
     {
@@ -56,6 +63,14 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-images`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `100`,
+              icon: false,
+              className: `heading-content`,
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
