@@ -56,6 +56,7 @@ const Banner = ({ id, heading, description }) => {
                 letter-spacing: -5px;
                 font-weight: bolder;
                 line-height: 0.9;
+                margin: 2rem 0;
               `}
             >
               {heading}

@@ -15,3 +15,7 @@ export const TAGS = {
   DESCRIPTION:
     'You don’t have to be great to start, but you have to start to be great. ~ZIG ZIGLAR ',
 }
+
+export const HOMEPAGE = {
+  TITLE: 'Latihan Ngoding Web Untuk Pemula & Profesional',
+}

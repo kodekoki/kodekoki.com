@@ -4,6 +4,7 @@ import { Header, Banner, Footer } from '../components/ui'
 import { SectionWrap } from '../components/ui/styles'
 import SEO from '../components/seo'
 import * as constants from '../constants/homepage'
+import { HOMEPAGE } from '../constants/pageTitle'
 import PostList from '../components/ui/PostList'
 import { graphql } from 'gatsby'
 import { object } from 'prop-types'
@@ -12,7 +13,7 @@ const HomePage = props => {
   const post = props.data.allMarkdownRemark.edges || []
   return (
     <Layout>
-      <SEO title={constants.SITE_TITLE} />
+      <SEO title={HOMEPAGE.TITLE} />
       <Header />
       <SectionWrap id="screen">
         <Banner

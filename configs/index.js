@@ -3,18 +3,19 @@ module.exports = {
   siteUrl: process.env.ROOT_URL || 'https://kodekoki.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
-  siteDescription: 'Let see another story from a dreamer software developer',
+  siteDescription:
+    'Pelajari Resep Membuat Aplikasi Web Modern Bersama KodeKoki',
   minibio: `
     <strong>Dwiki Arlan</strong> is a fullstack JavaScript developer that try to
     help people with create a good software. From Indonesia I want to share all of my knowledge's
     to others.
     `,
   author: 'Dwiki Arlan', // Author for schemaORGJSONLD
-  organization: 'Open Source Organization',
+  organization: 'KodeKoki',
 
   userTwitter: '@arrlancore', // Twitter Username
   ogSiteName: 'Dwiki Arlan', // Facebook Site Name
-  ogLanguage: 'en_US',
+  ogLanguage: 'id_ID',
   googleAnalyticsID: 'UA-XXX123-1',
 
   // Manifest and Progress color

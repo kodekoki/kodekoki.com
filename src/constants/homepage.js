@@ -1,18 +1,14 @@
 import React from 'react'
+import configs from '../../configs'
+export const BANNER_HEADING = 'LEARN BY DOING'
 
-export const BANNER_HEADING = 'BELAJAR LANGSUNG PRAKTEK'
-
-export const BANNER_DESCRIPTION =
-  'Belajar untuk menjadi fullstack web developer bersama KodeKoki'
+export const BANNER_DESCRIPTION = configs.siteDescription
 
 export const POST_HEADING = 'Project Based Learning'
 
 export const POST_DESCRIPTION = () => (
   <div>
     Belajar langsung dengan <strong>real world project</strong> menggunakan{' '}
-    <strong>video</strong> dan <strong> kode example</strong>
+    <strong>video</strong> dan <strong> contoh kode</strong> yang mudah dipahami
   </div>
 )
-
-export const SITE_TITLE =
-  'Situs belajar membuat aplikasi untuk developer yang kelaparan`'
