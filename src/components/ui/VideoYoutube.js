@@ -8,7 +8,7 @@ const VideoYoutube = ({ videoId }) => (
         <iframe
           width="560"
           height="349"
-          src={`http://www.youtube.com/embed/${videoId}?rel=0&hd=1`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&hd=1`}
           frameBorder="0"
           allowFullScreen
         ></iframe>
