@@ -15,287 +15,253 @@ tags:
   - Blog-System
 ---
 
-## Holaa
+# ![Markdown Here logo](https://raw.github.com/adam-p/markdown-here/master/src/common/images/icon48.png) Markdown Here
 
-Here is some composition of this blog that I use for:
+[**Visit the website.**](http://markdown-here.com)<br>
+[**Get it for Chrome.**](https://chrome.google.com/webstore/detail/elifhakcjgalahccnjkneoccemfahfoa)<br>
+[**Get it for Firefox.**](https://addons.mozilla.org/en-US/firefox/addon/markdown-here/)<br>
+[**Get it for Safari.**](https://s3.amazonaws.com/markdown-here/markdown-here.safariextz)<br>
+[**Get it for Thunderbird and Postbox.**](https://addons.mozilla.org/en-US/thunderbird/addon/markdown-here/)<br>
+[**Get it for Opera.**](https://addons.opera.com/en/extensions/details/markdown-here/)<br>
+[**Discuss it and ask questions in the Google Group.**](https://groups.google.com/forum/?fromgroups#!forum/markdown-here/)<br>
 
-- Gatsby (Static Generator)
-- React (Front End)
-- GraphQL (Query Language - Make your static data query able)
-- Netlify (Hosting)
-- Emotion (JSS Styling)
+*Markdown Here* is a Google Chrome, Firefox, Safari, Opera, and Thunderbird extension that lets you write email<sup>&dagger;</sup> in Markdown<sup>&Dagger;</sup> and render them before sending. It also supports syntax highlighting (just specify the language in a fenced code block).
+
+Writing email with code in it is pretty tedious. Writing Markdown with code in it is easy. I found myself writing email in Markdown in the Github in-browser editor, then copying the preview into email. This is a pretty absurd workflow, so I decided create a tool to write and render Markdown right in the email.
+
+To discover what can be done with Markdown in *Markdown Here*, check out the [Markdown Here Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet) and the other [wiki pages](https://github.com/adam-p/markdown-here/wiki).
+
+<sup>&dagger;: And Google Groups posts, and Blogger posts, and Evernote notes, and Wordpress posts! [See more](#compatibility).</sup><br>
+<sup>&Dagger;: And TeX mathematical formulae!</sup>
+
+![screenshot of conversion](https://raw.github.com/adam-p/markdown-here/master/store-assets/markdown-here-image1.gimp.png)
+
+### Table of Contents
+**[Installation Instructions](#installation-instructions)**<br>
+**[Usage Instructions](#usage-instructions)**<br>
+**[Troubleshooting](#troubleshooting)**<br>
+**[Compatibility](#compatibility)**<br>
+**[Notes and Miscellaneous](#notes-and-miscellaneous)**<br>
+**[Building the Extension Bundles](#building-the-extension-bundles)**<br>
+**[Next Steps, Credits, Feedback, License](#next-steps)**<br>
+
+## Installation Instructions
+
+### Chrome
+
+#### Chrome Web Store
+
+Go to the [Chrome Web Store page for *Markdown Here*](https://chrome.google.com/webstore/detail/elifhakcjgalahccnjkneoccemfahfoa) and install normally.
+
+After installing, make sure to reload your webmail or restart Chrome!
+
+#### Manual/Development
+
+1. Clone this repo.
+2. In Chrome, open the Extensions settings. (Wrench button, Tools, Extensions.)
+3. On the Extensions settings page, click the "Developer Mode" checkbox.
+4. Click the now-visible "Load unpacked extension…" button. Navigate to the directory where you cloned the repo, then the `src` directory under that.
+5. The *Markdown Here* extension should now be visible in your extensions list.
+6. Reload your webmail page (and maybe application) before trying to convert an email.
+
+### Firefox and Thunderbird
+
+#### Mozilla Add-ons site
+
+Go to the [Firefox Add-ons page for *Markdown Here*](https://addons.mozilla.org/en-US/firefox/addon/markdown-here/) and install normally.
+
+Or go to the "Tools > Add-ons" menu and then search for "Markdown Here".
+
+After installing, make sure to restart Firefox/Thunderbird!
+
+**Note:** It takes up to a month for Mozilla to approve changes to the Firefox/Thunderbird extension, so updates (features, fixes) will lag behind what is shown here. You can manually choose to install the newest version before it's reviewed from the list of versions: [https://addons.mozilla.org/en-US/firefox/addon/markdown-here/versions/](https://addons.mozilla.org/en-US/firefox/addon/markdown-here/versions/)
+
+#### Manual/Development
+
+1. Clone this repo.
+2. Follow the instructions in the MDN ["Setting up an extension development environment"](https://developer.mozilla.org/en/Setting_up_extension_development_environment) article.
+
+### Safari
+
+[Download the extension directly.](https://s3.amazonaws.com/markdown-here/markdown-here.safariextz) When it has finished downloading, double click it to install.
+
+#### Preferences
+
+To get to the Markdown Here preferences, open the Safari preferences and then go to the "Extensions" tab. Then click the "Click me to show Markdown Here options" box.
+
+### Opera
+
+Note that *Markdown Here* only works with Opera versions 16 and higher (i.e., the ones that are based on Chromium).
+
+Go to the [Opera Add-ons store page for *Markdown Here*](https://addons.opera.com/en/extensions/details/markdown-here/) and install normally.
+
+After installing, make sure to reload your webmail or restart Chrome!
+
+## Usage Instructions
+
+Install it, and then…
+
+1. In Chrome/Safari/Opera, *make sure* you reload your web mail page before trying to use Markdown Here.
+2. In Chrome/Firefox/Safari/Opera, log into your Gmail, Hotmail, or Yahoo account and start a new email. In Thunderbird, start a new message.
+3. Make sure you're using the rich editor.
+   * In Gmail, click the "Rich formatting" link, if it's visible.
+   * In Thunderbird, make sure "Compose messages in HTML format" is enabled in your "Account Settings", "Composition & Addressing" pane.
+4. Compose an email in Markdown. For example:
+
+   <pre>
+   **Hello** `world`.
+
+   ```javascript
+   alert('Hello syntax highlighting.');
+   ```
+   </pre>
+
+5. Right-click in the compose box and choose the "Markdown Toggle" item from the context menu. Or click the button that appears in your address bar. Or use the hotkey (<kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>M</kbd> by default).
+6. You should see your email rendered correctly from Markdown into rich HTML.
+7. Send your awesome email to everyone you know. It will appear to them the same way it looks to you.
+
+### Revert to Markdown
+
+After rendering your Markdown to pretty HTML, you can still get back to your original Markdown. Just right-click anywhere in the newly rendered Markdown and click "Markdown Toggle" -- your email compose body will change back to the Markdown you had written.
+
+Note that any changes you make to the pretty HTML will be lost when you revert to Markdown.
+
+In Gmail, you can also use the browser's Undo command (<kbd>CTRL</kbd>+<kbd>Z</kbd> / <kbd>CMD</kbd>+<kbd>Z</kbd>, or from the Edit menu). Be warned that you might also lose the last few characters you entered.
+
+### Replies
+
+In Gmail, Thunderbird, and Google Groups, you can use "Markdown Toggle" normally: just write your reply (top, bottom, inline, wherever) and then convert. The original email that you're replying to will be left alone. (Technically: Existing `blockquote` blocks will be left intact.)
+
+In Hotmail and Yahoo (which don't put the original in a `blockquote`), and optionally in Gmail, Thunderbird, and Google Groups, you can ensure that only the part of the reply that you wrote gets converted by selecting what you want to convert and then clicking "Markdown Toggle" -- see the next section.
+
+### Selection/Piecemeal Conversion
+
+Sometimes you don't want to convert the entire email; sometimes your email isn't entirely Markdown. To convert only part of the email, select the text (with your mouse or keyboard), right-click on it, and click the "Markdown Toggle" menu item. Your selection is magically rendered into pretty HTML.
+
+To revert back to Markdown, just put your cursor anywhere in the block of converted text, right click, and click the "Markdown Toggle" menu item again. Now it's magically back to the original Markdown.
+
+![screenshot of selection conversion](https://raw.github.com/adam-p/markdown-here/master/store-assets/markdown-here-image2.gimp.png)
+
+#### Things to know about converting/reverting a selection
+
+* If you select only part of a block of text, only that text will be converted. The converted block will be wrapped in a paragraph element, so the original line will be broken up. You probably don't want to ever do this.
+
+* You can select and revert multiple converted blocks at the same time. One upshot of this is that you can select your entire email, click "Markdown Toggle", and all portions of it that you had converted will be reverted.
+
+* If you don't have anything selected when you click "Markdown Toggle", *Markdown Here* will check if there are converted blocks anywhere in the message and revert them. If there no converted blocks are found, it will convert the entire email.
+
+### Options
+
+The *Markdown Here* Options page can be accessed via the Chrome, Firefox, Safari, or Thunderbird extensions list. The available options include:
+
+* Styling modifications for the rendered Markdown.
+* Syntax highlighting theme selection and modification.
+* TeX math formulae processing enabling and customization.
+* What the hotkey should be.
+
+For Chrome and Firefox, any changes made in the *Markdown Here* Options are automatically synchronized between your other installations of that browser (if you have the sync feature enabled in the browser).
+
+![screenshot of options](https://raw.githubusercontent.com/adam-p/markdown-here/master/store-assets/markdown-here-chrome-options-1.gimp.png)
 
 
-**[Watch "Enable React Concurrent Mode" on egghead.io](https://egghead.io/lessons/react-enable-react-concurrent-mode?af=5236ad)**
-(part of my
-[Use Suspense to Simplify Your Async UI](https://egghead.io/courses/use-suspense-to-simplify-your-async-ui?af=5236ad)
-course)
+## Troubleshooting
 
-https://egghead.io/lessons/react-enable-react-concurrent-mode?af=5236ad
+See the [Troubleshooting wiki page](https://github.com/adam-p/markdown-here/wiki/Troubleshooting).
 
-React's new [Concurrent Mode](https://reactjs.org/concurrent) has just been
-published in the
-[experimental release channel](https://reactjs.org/blog/2019/10/22/react-release-channels.html).
-It's the result of years of research and that shows. If you'd like to learn more
-about why it's so cool, definitely watch
-[Dan Abramov's talk at JSIceland](https://www.youtube.com/watch?v=nLF0n9SACd4).
-And people have started playing around with it and seeing some nice perf wins
-out of the box.
 
-All that said, please remember that this _is_ experimental. The experimental
-release channel does not honor semver (so code relying on it could break
-unexpectedly) and there could definitely be bugs. But early experimentation has
-been promising for many and I suggest that you try it out in your own app.
+## Compatibility
 
-## Step 1
+See the [Compatibility wiki page](https://github.com/adam-p/markdown-here/wiki/Compatibility).
 
-**Get it installed.**
 
-First, to enable Concurrent Mode, you'll need to have a version of React that
-supports this. At the time of this writing, React and React DOM are at version
-`16.11.0` which does not support Concurrent Mode. So we'll need to install the
-`experimental` version:
+## Notes and Miscellaneous
 
-```bash
-npm install react@experimental react-dom@experimental
-# or: yarn add react@experimental react-dom@experimental
+* *Markdown Here* uses [Github Flavored Markdown](http://github.github.com/github-flavored-markdown/), with the limitation that GFM special links are not supported ([issue #11](https://github.com/adam-p/markdown-here/issues/11)); nor will they be, as MDH is not Github-specific.
+
+* Available languages for syntax highlighting (and the way they should be written in the fenced code block) can be seen on the [highlight.js demo page](http://softwaremaniacs.org/media/soft/highlight/test.html).
+
+* Images embedded inline in your Markdown will be retained when you "Markdown Toggle". Gmail allows you to put images inline in your email -- this can be much easier than referencing an external image.
+
+* Email signatures are automatically excluded from conversion. Specifically, anything after the semi-standard `'-- '` (note the trailing space) is left alone.
+  * Note that Hotmail and Yahoo do *not* automatically add the `'-- '` to signatures, so you have to add it yourself.
+
+* The "Markdown Toggle" menu item shows up for more element types than it can correctly render. This is intended to help people realize that they're not using a rich editor. Otherwise they just don't see the menu item and don't know why.
+
+* Styling:
+  * The use of browser-specific styles (-moz-, -webkit-) should be avoided. If used, they may not render correctly for people reading the email in a different browser from the one where the email was sent.
+  * The use of state-dependent styles (like `a:hover`) don't work because they don't match at the time the styles are made explicit. (In email, styles must be explicitly applied to all elements -- stylesheets get stripped.)
+
+* For more tweaky features, visit the [Tips and Tricks](https://github.com/adam-p/markdown-here/wiki/Tips-and-Tricks) section.
+
+## Building the Extension Bundles
+
+```
+cd utils
+node build.js
 ```
 
-## Step 2
 
-**Make sure your app works without changing anything else.**
+### Chrome and Opera extension
 
-Run your app, run your build, run your tests/type checking. If there are _new_
-errors in the console that weren't there before, then those _might_ be bugs in
-React and you should try to make a minimal reproduction (preferably in a
-codesandbox) and
-[open a new issue on the React repo](https://github.com/facebook/react/issues/new).
+Create a file with a `.zip` extension containing these files and directories:
 
-Often we skip this step, but I think it's important to make sure that if there
-are problems you know which step these problems started at! Good advice in
-general I'd say 😉
-
-## Step 3
-
-**Enable Concurrent Mode.**
-
-In the entry file of your project, you probably have something that looks like
-this:
-
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './app'
-
-const rootEl = document.getElementById('root')
-ReactDOM.render(<App />, rootEl)
+```
+manifest.json
+common/
+chrome/
 ```
 
-To enable Concurrent Mode, you'll use a new
-[`createRoot`](https://reactjs.org/docs/concurrent-mode-reference.html#createroot)
-API:
+### Firefox/Thunderbird extension
 
-```jsx {6-8}
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './app'
+Create a file with a `.xpi` extension containing these files and directories:
 
-const rootEl = document.getElementById('root')
-// ReactDOM.render(<App />, rootEl)
-const root = ReactDOM.createRoot(rootEl)
-root.render(<App />)
+```
+chrome.manifest
+install.rdf
+common/
+firefox/
 ```
 
-That's it.
+### Safari extension
 
-## Step 4
+The browser-specific code is located in the [`markdown-here-safari`](https://github.com/adam-p/markdown-here-safari) project.
 
-**Make sure your app works without changing anything else.**
+Use the Safari Extension Builder.
 
-Run your app, run your build, run your tests/type checking. If there are _new_
-errors in the console that weren't there before, then those _might_ be bugs in
-React and you should try to make a minimal reproduction (preferably in a
-codesandbox) and
-[open a new issue on the React repo](https://github.com/facebook/react/issues/new).
+## Next Steps
 
-If that looks familiar, it's because I copy/pasted it from step 2 😂
+See the [issues list](https://github.com/adam-p/markdown-here/issues) and the [Notes Wiki](https://github.com/adam-p/markdown-here/wiki/Development-Notes). All ideas, bugs, plans, complaints, and dreams will end up in one of those two places.
 
-In this case however, if things are broken or you have new errors in the
-console. It may be because there's code in your app that's using features not
-supported in Concurrent Mode (like String Refs, Legacy Context, or
-`findDOMNode`).
+Feel free to create a feature request issue if what you want isn't already there. If you'd prefer a less formal approach to floating an idea, post to the ["markdown-here" Google Group](https://groups.google.com/forum/?fromgroups=#!forum/markdown-here).
 
-Also please note that all the lifecycle methods that have the `unsafe_` prefix
-are now _actually_ unsafe and you will experience bugs using those.
+It also takes a fair bit of work to stay up-to-date with the latest changes in all the applications and web sites where Markdown Here works.
 
-## Step 5
+## Credits
 
-Try out Concurrent Mode. There are two primary things that Concurrent Mode
-enables for us:
+*Markdown Here* was coded on the shoulders of giants.
 
-1. Time Slicing
-2. Suspense for everything asynchronous
+* Markdown-to-HTML: [chjj / marked](https://github.com/chjj/marked)
+* Syntax highlighting: [isagalaev / highlight.js](https://github.com/isagalaev/highlight.js)
+* HTML-to-text: [mtrimpe / jsHtmlToText](https://github.com/mtrimpe/jsHtmlToText)
 
-If you have some user interaction in your app that you know is slow, try that
-out and if it's less janky, that's time slicing at work (watch Dan's talk linked
-above for more about this).
+## Feedback
 
-You can try refactoring one of your asynchronous interactions to suspense, or
-just try adding this to somewhere in your app:
+All bugs, feature requests, pull requests, feedback, etc., are welcome. [Create an issue](https://github.com/adam-p/markdown-here/issues). Or [post to the "markdown-here" Google Group](https://groups.google.com/forum/?fromgroups=#!forum/markdown-here).
 
-```jsx
-const TRANSITION_CONFIG = {
-  timeoutMs: 3000, // 🐨 Play with this number a bit...
-}
-function SuspenseDemo() {
-  const [greetingResource, setGreetingResource] = React.useState(null)
-  const [startTransition, isPending] = React.useTransition(TRANSITION_CONFIG)
+## License
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    const name = event.target.elements.nameInput.value
-    startTransition(() => {
-      setGreetingResource(createGreetingResource(name))
-    })
-  }
+### Code
 
-  return (
-    <div>
-      <strong>Suspense Demo</strong>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="nameInput">Name</label>
-        <input id="nameInput" />
-        <button type="submit">Submit</button>
-      </form>
-      <ErrorBoundary>
-        <React.Suspense fallback={<p>loading greeting</p>}>
-          <Greeting greetingResource={greetingResource} isPending={isPending} />
-        </React.Suspense>
-      </ErrorBoundary>
-    </div>
-  )
-}
+MIT License: http://adampritchard.mit-license.org/ or see [the `LICENSE` file](https://github.com/adam-p/markdown-here/blob/master/LICENSE).
 
-function Greeting({greetingResource, isPending}) {
-  return (
-    <p style={{opacity: isPending ? 0.4 : 1}}>
-      {greetingResource ? greetingResource.read() : 'Please submit a name'}
-    </p>
-  )
-}
+### Logo
 
-// 🐨 make this function do something else. Like an HTTP request or something
-function getGreeting(name) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(`Hello ${name}!`)
-      // 🐨 try rejecting instead... (make sure to comment out the resolve call)
-      // reject(new Error(`Oh no. Could not load greeting for ${name}`))
-    }, 1500) // 🐨 play with this number a bit
-  })
-}
+Copyright 2015, [Austin Anderson](http://protractor.ninja/). Licensed to Markdown Here under the [MDH contributor license agreement](https://github.com/adam-p/markdown-here/blob/master/CLA-individual.md).
 
-// 🚨 This should NOT be copy/pasted for production code and is only here
-// for experimentation purposes. The API for suspense (currently throwing a
-// promise) is likely to change before suspense is officially released.
-function createGreetingResource(name) {
-  let status = 'pending'
-  let result
-  let suspender = getGreeting(name).then(
-    greeting => {
-      status = 'success'
-      result = greeting
-    },
-    error => {
-      status = 'error'
-      result = error
-    },
-  )
-  return {
-    read() {
-      if (status === 'pending') throw suspender
-      if (status === 'error') throw result
-      if (status === 'success') return result
-    },
-  }
-}
+### Other images
 
-class ErrorBoundary extends React.Component {
-  state = {error: null}
-  static getDerivedStateFromError(error) {
-    return {error}
-  }
-  componentDidCatch() {
-    // log the error to the server
-  }
-  tryAgain = () => this.setState({error: null})
-  render() {
-    return this.state.error ? (
-      <div>
-        There was an error. <button onClick={this.tryAgain}>try again</button>
-        <pre style={{whiteSpace: 'normal'}}>{this.state.error.message}</pre>
-      </div>
-    ) : (
-      this.props.children
-    )
-  }
-}
-```
+[Creative Commons Attribution 3.0 Unported (CC BY 3.0) License](http://creativecommons.org/licenses/by/3.0/)
 
-[Play with this on codesandbox instead](https://codesandbox.io/s/concurrent-mode-suspense-playground-unekx)
+---
 
-One thing that I've found is that the suspense APIs are pretty low-level, so
-there's a lot of code needed to make it work well. But the cool thing is that
-these are atomic features which work really well within an abstraction and can
-be easily shared. So once you've got that abstraction, you're golden. It's
-awesome.
-
-## Step 6
-
-**Undo all your changes.**
-
-Reinstall the last stable version you had installed before, and restore the old
-`ReactDOM.render` you had before. Concurrent Mode is experimental, and even if
-it doesn't look like there are problems, shipping experimental software as
-foundational as React is ill-advised. The React docs even suggest that depending
-on the size of your app and the third party libraries you're using, you may
-never be able to ship Concurrent Mode (Facebook currently has no plans to enable
-Concurrent Mode on the old Facebook.com).
-
-Remember also that we as a community are just starting to play around with this
-stuff, so there are still a lot of unknowns around trade-offs for different
-approaches. It's an exciting time. But if you value stability, then maybe
-pretend Concurrent Mode and suspense don't exist for a little while.
-
-## Step 7
-
-**Enable Strict Mode.**
-
-Apps that don't pass Strict Mode are unlikely to work well in Concurrent Mode.
-So if you want to work toward enabling Concurrent Mode on your app, then enable
-Strict Mode. One nice thing about Strict Mode is (unlike Concurrent Mode) it's
-incrementally adoptable. So you can apply Strict Mode to only the part of your
-codebase that you know is compliant and then iterate to full support over time.
-
-### dont do this
-
-- a
-- b
-
-### do this
-
-- b
-- a
-
-Read more about this on my blog:
-[How to Enable React Strict Mode](/blog/react-strict-mode).
-
-## Conclusion
-
-I'm really looking forward to the stable release of Concurrent Mode and Suspense
-for data fetching. It's going to be even cooler when frameworks and libraries
-take advantage of these new features. As awesome as React Hooks were for the
-React ecosystem, I think that Concurrent Mode will be more impactful for both
-developer experience and the end user.
-
-Enjoy experimenting!
+![Dos Equis man says](https://raw.github.com/adam-p/markdown-here/master/store-assets/dos-equis-MDH.jpg)

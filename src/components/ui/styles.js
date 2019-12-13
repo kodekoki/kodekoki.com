@@ -422,9 +422,7 @@ export const Articles = styled.article`
   }
   & img {
     border-radius: 0.2rem;
-  }
-  & main > div > img {
-    width: 100%;
+    max-width: 100%;
   }
 `
 

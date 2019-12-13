@@ -28,18 +28,7 @@ const Post = ({ data }) => {
   } = data.markdownRemark.frontmatter
   const { type } = data.markdownRemark.fields
   const { timeToRead } = markdownRemark
-  const getHeadings = () => {
-    let headings = []
-    const content = document.getElementById('content-article')
-    content &&
-      content.querySelectorAll('h2, h3').forEach(elm => {
-        headings.push({
-          title: elm.innerText,
-          type: elm.tagName.toLowerCase(),
-        })
-      })
-    return headings
-  }
+
   return (
     <Layout>
       <SEO title={title} />
@@ -67,10 +56,7 @@ const Post = ({ data }) => {
                   __html: markdownRemark.html,
                 }}
               />
-              <TableOfContent
-                htmlContent={markdownRemark.html}
-                contents={getHeadings()}
-              />
+              <TableOfContent headings={markdownRemark.headings} />
             </section>
           </main>
           <Tags tags={tags} />
