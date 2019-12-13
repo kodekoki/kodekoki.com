@@ -4,7 +4,7 @@ export const QUOTES = [
   'Hal hebat tercipta dari rangkaian hal kecil yang disusun bersama-sama. ~VINCENT VAN GOGH',
   'Bekerja keraslah, bersenang-senanglah, buatlah sejarah. ~JEFF BEZOS',
   'Kesabaran adalah kunci kesuksesan. ~BILL GATES',
-  'Tetaplah Lapar, Tetaplah Menjadi Bodoh. ~ STEVE JOBS',
+  'Tetaplah Lapar, Tetaplah Menjadi Bodoh. ~STEVE JOBS',
   'Langkah pertama adalah menentukan bahwa sesuatu itu mungkin; maka itu akan mungkin. ~ELON MUSK',
   'Jangan buang waktu menunggu inspirasi. Mulailah, dan inspirasi akan menemukanmu. ~ACHMAD ZAKY',
   'Peluang selalu ada di tempat orang yang mengeluh. ~JACK MA',

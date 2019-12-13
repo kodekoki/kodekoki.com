@@ -14,6 +14,7 @@ import { graphql } from 'gatsby'
 import { object } from 'prop-types'
 
 const Post = ({ data }) => {
+  console.log('TCL: Post -> data', data)
   const { next, previous } = {}
   const { markdownRemark } = data
   const {
@@ -28,18 +29,7 @@ const Post = ({ data }) => {
   } = data.markdownRemark.frontmatter
   const { type } = data.markdownRemark.fields
   const { timeToRead } = markdownRemark
-  const getHeadings = () => {
-    let headings = []
-    const content = document.getElementById('content-article')
-    content &&
-      content.querySelectorAll('h2, h3').forEach(elm => {
-        headings.push({
-          title: elm.innerText,
-          type: elm.tagName.toLowerCase(),
-        })
-      })
-    return headings
-  }
+
   return (
     <Layout>
       <SEO title={title} />
@@ -67,10 +57,7 @@ const Post = ({ data }) => {
                   __html: markdownRemark.html,
                 }}
               />
-              <TableOfContent
-                htmlContent={markdownRemark.html}
-                contents={getHeadings()}
-              />
+              <TableOfContent headings={markdownRemark.headings} />
             </section>
           </main>
           <Tags tags={tags} />
@@ -95,6 +82,10 @@ export const queryVideoPostBySlug = graphql`
       timeToRead
       fields {
         type
+      }
+      headings {
+        value
+        depth
       }
       frontmatter {
         title

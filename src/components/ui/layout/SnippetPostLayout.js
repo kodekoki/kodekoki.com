@@ -96,6 +96,10 @@ export const querySnippetPostBySlug = graphql`
       fields {
         type
       }
+      headings {
+        value
+        depth
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

@@ -1,26 +1,8 @@
 import React from 'react'
 import { Styled } from 'theme-ui'
 import css from '@emotion/css'
-import { string } from 'prop-types'
+import { array } from 'prop-types'
 import theme from './theme'
-
-function getHeading(html) {
-  const stripped = str => str.replace(/(<([^>]+)>)/gi, '')
-  const headings = []
-  if (html) {
-    const list =
-      html.match(/(<h2[^>]*>([^<]+)<\/h2>|<h3[^>]*>([^<]+)<\/h3>)/g) || []
-    list.forEach(str => {
-      const strippedString = stripped(str)
-      if (str.match(/<h2/g)) {
-        headings.push({ type: 'h2', title: strippedString })
-      } else {
-        headings.push({ type: 'h3', title: strippedString })
-      }
-    })
-  }
-  return headings
-}
 
 const rootStyle = css`
   max-width: 250px;
@@ -67,7 +49,7 @@ const styleOnFixed = css`
 `
 const TITLE = 'ISI KONTEN'
 
-const TableOfContent = ({ htmlContent }) => {
+const TableOfContent = ({ headings }) => {
   const [fixed, setFixed] = React.useState(false)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const trackingPosition = () => {
@@ -93,6 +75,13 @@ const TableOfContent = ({ htmlContent }) => {
     }
   }
 
+  function getHeading(nodeHeadings) {
+    return nodeHeadings.map(data => ({
+      title: data.value,
+      type: `h${data.depth}`,
+    }))
+  }
+
   React.useEffect(() => {
     window.addEventListener('scroll', trackingPosition)
     return () => {
@@ -100,12 +89,12 @@ const TableOfContent = ({ htmlContent }) => {
     }
   }, [trackingPosition])
 
-  const contents = getHeading(htmlContent)
-  return contents[0] ? (
+  const listHeading = getHeading(headings)
+  return listHeading[0] ? (
     <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
       <>
         <Styled.h4>{TITLE}</Styled.h4>
-        {contents.map((data, indexData) => (
+        {listHeading.map((data, indexData) => (
           <React.Fragment key={indexData}>
             {data.type === 'h2' ? (
               <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
@@ -124,6 +113,6 @@ const TableOfContent = ({ htmlContent }) => {
 }
 
 TableOfContent.propTypes = {
-  htmlContent: string,
+  headings: array,
 }
 export default TableOfContent
