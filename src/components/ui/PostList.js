@@ -2,6 +2,7 @@ import React from 'react'
 import { node, string, array } from 'prop-types'
 import { Styled, Container } from 'theme-ui'
 import PostItem from './PostItem'
+import css from '@emotion/css'
 
 const PostList = ({ heading, description, listItem }) => {
   const Desc = description
@@ -15,12 +16,12 @@ const PostList = ({ heading, description, listItem }) => {
       )}
       {listItem && (
         <div
-          style={{
-            margin: '3rem 0 0',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-          }}
+          css={css`
+            margin: 3rem 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+          `}
         >
           {listItem.map((data, index) => {
             const { title, description, image } = data.node.frontmatter
