@@ -10,7 +10,7 @@ module.exports = {
     description: configs.siteDescription,
     author: configs.author,
     siteUrl: configs.siteUrl,
-    logo: `https://github.com/arrlancore/arlan.net/blob/master/src/images/logo-small.png?raw=true`,
+    logo: `https://github.com/arrlancore/kodekoki.com/blob/master/src/images/logo-small.png?raw=true`,
     keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
   },
   plugins: [
@@ -35,8 +35,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `arlan.net`,
-        short_name: `arlan`,
+        name: `kodekoki.com`,
+        short_name: `kodekoki`,
         start_url: `/`,
         background_color: configs.backgroundColor,
         theme_color: configs.themeColor,
@@ -177,10 +177,16 @@ module.exports = {
       options: {
         feeds: [
           getBlogFeed({
-            filePathRegex: `//src/content/blog//`,
-            blogUrl: 'https://arlan.net/blog',
+            filePathRegex: `//src/content/video//`,
+            blogUrl: 'https://kodekoki.com/video',
             output: '/blog/rss.xml',
-            title: 'arlan.net Blog RSS Feed',
+            title: 'KodeKoki Video RSS Feed',
+          }),
+          getBlogFeed({
+            filePathRegex: `//src/content/snippet//`,
+            blogUrl: 'https://kodekoki.com/snippet',
+            output: '/blog/rss.xml',
+            title: 'KodeKoki Snippet RSS Feed',
           }),
         ],
       },

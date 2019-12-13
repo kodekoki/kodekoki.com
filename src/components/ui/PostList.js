@@ -2,7 +2,14 @@ import React from 'react'
 import { node, string, array } from 'prop-types'
 import { Styled, Container } from 'theme-ui'
 import PostItem from './PostItem'
-import css from '@emotion/css'
+import styled from '@emotion/styled'
+
+const PostWrapper = styled.section`
+  margin: 3rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`
 
 const PostList = ({ heading, description, listItem }) => {
   const Desc = description
@@ -15,14 +22,7 @@ const PostList = ({ heading, description, listItem }) => {
         </Styled.p>
       )}
       {listItem && (
-        <div
-          css={css`
-            margin: 3rem 0 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-          `}
-        >
+        <PostWrapper>
           {listItem.map((data, index) => {
             const { title, description, image } = data.node.frontmatter
             return (
@@ -35,7 +35,7 @@ const PostList = ({ heading, description, listItem }) => {
               />
             )
           })}
-        </div>
+        </PostWrapper>
       )}
     </Container>
   )
