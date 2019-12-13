@@ -7,11 +7,13 @@ import SEO from '../../seo'
 import { Articles } from '../styles'
 import { graphql } from 'gatsby'
 import { TAGS } from '../../../constants/pageTitle'
+import { QUOTES } from '../../../constants/quotes'
 import PostList from '../PostList'
 import { object, string } from 'prop-types'
 
 const Post = props => {
   const tagName = props.path.replace('/tags/', '')
+  const RANDOM_QUOTES = QUOTES[Math.floor(Math.random() * 10)]
   const post = props.data.allMarkdownRemark.edges || []
 
   return (
@@ -20,7 +22,7 @@ const Post = props => {
       <Header />
       <PageTitle
         title={`${TAGS.TITLE} ${tagName}`}
-        description={TAGS.DESCRIPTION}
+        description={RANDOM_QUOTES}
       />
       <Container>
         <Articles>

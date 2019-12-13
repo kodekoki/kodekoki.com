@@ -1,6 +1,6 @@
 import React from 'react'
 import configs from '../../configs'
-export const BANNER_HEADING = 'LEARN BY DOING'
+export const BANNER_HEADING = 'LEARN CODING BY DOING'
 
 export const BANNER_DESCRIPTION = configs.siteDescription
 
