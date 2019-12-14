@@ -31,7 +31,11 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description={description}
+        image={image && image.childImageSharp.fluid.src}
+      />
       <Header />
       <PageTitle
         image={image && image.childImageSharp.fluid}
@@ -88,9 +92,11 @@ export const querySnippetPostBySlug = graphql`
       }
       frontmatter {
         title
+        description
         date(formatString: "MMMM DD, YYYY")
         category
         tags
+        author
         image {
           childImageSharp {
             fluid {

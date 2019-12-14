@@ -15,7 +15,7 @@ const Post = props => {
 
   return (
     <Layout>
-      <SEO title={SNIPPET.TITLE} />
+      <SEO title={SNIPPET.TITLE} description={SNIPPET.DESCRIPTION} />
       <Header />
       <PageTitle title={SNIPPET.TITLE} description={SNIPPET.DESCRIPTION} />
       <Container>
@@ -56,7 +56,7 @@ export const snippetListQuery = graphql`
             category
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }

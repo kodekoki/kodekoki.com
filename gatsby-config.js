@@ -1,17 +1,23 @@
 const configs = require('./configs')
 const getBlogFeed = require('./src/components/utils/blogfeed')
-// const path = require('path')
 
-// const here = (...p) => path.join(__dirname, ...p)
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = configs.siteUrl,
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === 'production'
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
     title: configs.siteTitle,
     description: configs.siteDescription,
     author: configs.author,
-    siteUrl: configs.siteUrl,
-    logo: `https://github.com/arrlancore/arlan.net/blob/master/src/images/logo-small.png?raw=true`,
-    keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
+    siteUrl,
+    logo: `https://github.com/kodekoki/gallery/blob/master/asset/kodekoki3.png?raw=true`,
+    keywords: ['Web Development', 'Javascript', 'CSS', 'HTML'],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,8 +41,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `arlan.net`,
-        short_name: `arlan`,
+        name: `kodekoki.com`,
+        short_name: `kodekoki`,
         start_url: `/`,
         background_color: configs.backgroundColor,
         theme_color: configs.themeColor,
@@ -177,17 +183,41 @@ module.exports = {
       options: {
         feeds: [
           getBlogFeed({
-            filePathRegex: `//src/content/blog//`,
-            blogUrl: 'https://arlan.net/blog',
-            output: '/blog/rss.xml',
-            title: 'arlan.net Blog RSS Feed',
+            filePathRegex: `//src/content/video//`,
+            blogUrl: 'https://kodekoki.com/video',
+            output: '/video/rss.xml',
+            title: 'KodeKoki Video RSS Feed',
+          }),
+          getBlogFeed({
+            filePathRegex: `//src/content/snippet//`,
+            blogUrl: 'https://kodekoki.com/snippet',
+            output: '/snippet/rss.xml',
+            title: 'KodeKoki Snippet RSS Feed',
           }),
         ],
       },
     },
-    'gatsby-plugin-robots-txt',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    }, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     `gatsby-plugin-offline`,
   ],
 }

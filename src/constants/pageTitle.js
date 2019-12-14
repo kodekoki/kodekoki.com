@@ -13,7 +13,7 @@ export const VIDEO = {
 export const TAGS = {
   TITLE: 'TAGS: ',
   DESCRIPTION:
-    'You don’t have to be great to start, but you have to start to be great. ~ZIG ZIGLAR ',
+    'Pilih topik belajarmu dan fokus pada satu topik saja pada satu waktu',
 }
 
 export const HOMEPAGE = {

@@ -51,11 +51,13 @@ const PostItem = ({ link, image, title, description }) => {
     <div css={rootStyle}>
       <Link to={link}>
         <div>
-          <Img
-            style={{ height: 330, objectFit: 'cover' }}
-            fluid={image}
-            alt={`pic for ${title}`}
-          />
+          {image && (
+            <Img
+              style={{ height: 330, objectFit: 'cover' }}
+              fluid={image}
+              alt={`pic for ${title}`}
+            />
+          )}
         </div>
       </Link>
       <section>

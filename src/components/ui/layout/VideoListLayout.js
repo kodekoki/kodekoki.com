@@ -15,7 +15,7 @@ const Post = props => {
 
   return (
     <Layout>
-      <SEO title={VIDEO.TITLE} />
+      <SEO title={VIDEO.TITLE} description={VIDEO.DESCRIPTION} />
       <Header />
       <PageTitle title={VIDEO.TITLE} description={VIDEO.DESCRIPTION} />
       <Container>
@@ -56,7 +56,7 @@ export const videoListQuery = graphql`
             category
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }
