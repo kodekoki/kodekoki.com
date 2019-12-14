@@ -93,7 +93,6 @@ exports.createPages = async ({ graphql, actions }) => {
               featured
               published
               description
-              videoId
             }
             html
           }

@@ -23,7 +23,7 @@ const rootStyle = css`
     line-height: 1;
     border: 1px solid rgba(0, 0, 0, 0.025);
     transition: all ease-in 0.2s;
-    &:hover:not(:first-child) {
+    &:hover {
       border-left: 3px solid rgba(0, 0, 0, 0.025);
       background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
       -webkit-background-clip: text;
@@ -34,6 +34,12 @@ const rootStyle = css`
     font-size: 0.75rem;
     padding-left: 1.25rem;
     padding: 0.6rem 1rem;
+    &:hover:first-of-type {
+      background-image: none;
+      -webkit-background-clip: none;
+      -webkit-text-fill-color: none;
+      border-left: 0 solid rgba(0, 0, 0, 0.025);
+    }
   }
 `
 
@@ -92,24 +98,26 @@ const TableOfContent = ({ headings }) => {
 
   const listHeading = getHeading(headings)
   return listHeading[0] ? (
-    <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
-      <>
-        <div>{TITLE}</div>
-        {listHeading.map((data, indexData) => (
-          <React.Fragment key={indexData}>
-            {data.type === 'h2' && (
-              <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
-                <strong>{data.title}</strong>
-              </Styled.h4>
-            )}
-            {data.type === 'h3' && (
-              <div onClick={() => onTitleClick(data.title, data.type)}>
-                {data.title}
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </>
+    <div>
+      <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
+        <>
+          <div>{TITLE}</div>
+          {listHeading.map((data, indexData) => (
+            <React.Fragment key={indexData}>
+              {data.type === 'h2' && (
+                <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
+                  <strong>{data.title}</strong>
+                </Styled.h4>
+              )}
+              {data.type === 'h3' && (
+                <div onClick={() => onTitleClick(data.title, data.type)}>
+                  {data.title}
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </>
+      </div>
     </div>
   ) : null
 }
