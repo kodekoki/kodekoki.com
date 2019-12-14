@@ -88,9 +88,11 @@ export const querySnippetPostBySlug = graphql`
       }
       frontmatter {
         title
+        description
         date(formatString: "MMMM DD, YYYY")
         category
         tags
+        author
         image {
           childImageSharp {
             fluid {

@@ -33,6 +33,7 @@ const rootStyle = css`
   & > div {
     font-size: 0.75rem;
     padding-left: 1.25rem;
+    padding: 0.6rem 1rem;
   }
 `
 
@@ -47,7 +48,7 @@ const styleOnFixed = css`
     margin: 0 0 0 2rem;
   }
 `
-const TITLE = 'ISI KONTEN'
+const TITLE = 'ISI KONTEN:'
 
 const TableOfContent = ({ headings }) => {
   const [fixed, setFixed] = React.useState(false)
@@ -93,14 +94,15 @@ const TableOfContent = ({ headings }) => {
   return listHeading[0] ? (
     <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
       <>
-        <Styled.h4>{TITLE}</Styled.h4>
+        <div>{TITLE}</div>
         {listHeading.map((data, indexData) => (
           <React.Fragment key={indexData}>
-            {data.type === 'h2' ? (
+            {data.type === 'h2' && (
               <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
                 <strong>{data.title}</strong>
               </Styled.h4>
-            ) : (
+            )}
+            {data.type === 'h3' && (
               <div onClick={() => onTitleClick(data.title, data.type)}>
                 {data.title}
               </div>

@@ -55,7 +55,7 @@ export const postListQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }

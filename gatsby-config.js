@@ -179,13 +179,13 @@ module.exports = {
           getBlogFeed({
             filePathRegex: `//src/content/video//`,
             blogUrl: 'https://kodekoki.com/video',
-            output: '/blog/rss.xml',
+            output: '/video/rss.xml',
             title: 'KodeKoki Video RSS Feed',
           }),
           getBlogFeed({
             filePathRegex: `//src/content/snippet//`,
             blogUrl: 'https://kodekoki.com/snippet',
-            output: '/blog/rss.xml',
+            output: '/snippet/rss.xml',
             title: 'KodeKoki Snippet RSS Feed',
           }),
         ],
