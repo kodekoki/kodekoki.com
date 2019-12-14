@@ -5,7 +5,7 @@ author: Dwiki Arlan
 featured: false
 published: true
 image: ./cover.jpg
-description: Belajar Konsep Dasar & Cara Menggunakan Git Untuk Mengontrol Versi Kodemu Dengan Fitur-Fitur Canggihnya seperti branching,  staging dll
+description: Belajar Konsep Dasar & Cara Menggunakan Git Untuk Mengontrol Versi Kodemu Dengan Fitur-Fitur Canggihnya seperti branching,  staging, dll
 category:
   - tools
   - beginner
