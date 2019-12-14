@@ -5,7 +5,7 @@ author: Dwiki Arlan
 featured: false
 published: true
 image: ./cover.jpg
-description: Mempelajari Konsep Git Beserta Perintahnya
+description: Belajar Konsep Dasar & Cara Menggunakan Git Untuk Mengontrol Versi Kodemu Dengan Fitur-Fitur Canggihnya seperti branching,  staging dll
 category:
   - tools
   - beginner
