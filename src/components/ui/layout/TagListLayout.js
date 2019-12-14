@@ -18,7 +18,7 @@ const Post = props => {
 
   return (
     <Layout>
-      <SEO title={`${TAGS.TITLE} ${tagName}`} />
+      <SEO title={`${TAGS.TITLE} ${tagName}`} description={TAGS.DESCRIPTION} />
       <Header />
       <PageTitle
         title={`${TAGS.TITLE} ${tagName}`}

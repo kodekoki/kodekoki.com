@@ -31,7 +31,11 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description={description}
+        image={image && image.childImageSharp.fluid.src}
+      />
       <Header />
       <PageTitle
         image={image && image.childImageSharp.fluid}
