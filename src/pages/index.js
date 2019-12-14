@@ -42,6 +42,7 @@ export const postListQuery = graphql`
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
+      filter: { frontmatter: { published: { ne: false } } }
     ) {
       edges {
         node {

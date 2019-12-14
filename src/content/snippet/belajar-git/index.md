@@ -4,8 +4,8 @@ date: 2019-12-15
 author: Dwiki Arlan
 featured: false
 published: true
-image: ./belajar-git.jpg
-description: Mempelajari Konsep Git Beserta Perintahnya
+image: ./cover.jpg
+description: Belajar Konsep Dasar & Cara Menggunakan Git Untuk Mengontrol Versi Kodemu Dengan Fitur-Fitur Canggihnya seperti branching,  staging, dll
 category:
   - tools
   - beginner
@@ -32,21 +32,23 @@ Pada situs [resminya, git](https://git-scm.com/) menyatakan bahwa git itu **muda
 
 Git bertugas untuk mengontrol versi, apa maksudnya?
 
-:::info
-Misalkan dalam suatu proyek kamu ditugaskan untuk membuat laporan proyek dalam suatu file txt. Setelah selesai kamu menyimpannya dengan nama **laporan_proyek_kodekoki.txt**
+---
 
-Setelah beberapa saat kamu melakukan revisi terhadap laporan tersebut, tapi sebelum melakukan revisi kamu tidak mau kehilangan informasi yang ada pada file aslinya. Kamu pun membuat file salinan baru dengan nama **laporan_proyek_kodekoki_revisi_1.txt**
+Misalkan dalam suatu proyek kamu ditugaskan untuk membuat laporan proyek dalam suatu file txt. Setelah selesai kamu menyimpannya dengan nama **laporan-proyek-kodekoki.txt**
+
+Setelah beberapa saat kamu melakukan revisi terhadap laporan tersebut, tapi sebelum melakukan revisi kamu tidak mau kehilangan informasi yang ada pada file aslinya. Kamu pun membuat file salinan baru dengan nama **laporan-proyek-kodekoki-revisi-1.txt**
 
 Dan begitu seterusnya, jika ada 3 revisi maka akan ada file seperti berikut di folder kamu:
 
-- **laporan_proyek_kodekoki.txt** (File pertama)
-- **laporan_proyek_kodekoki_revisi_1.txt**
-- **laporan_proyek_kodekoki_revisi_2.txt**
-- **laporan_proyek_kodekoki_revisi_3.txt**
-- **laporan_proyek_kodekoki_revisi_final.txt**
+- **laporan-proyek-kodekoki.txt** (File pertama)
+- **laporan-proyek-kodekoki-revisi-1.txt**
+- **laporan-proyek-kodekoki-revisi-2.txt**
+- **laporan-proyek-kodekoki-revisi-3.txt**
+- **laporan-proyek-kodekoki-revisi-final.txt**
 
-Nah dengan menggunakan **git**, kamu hanya butuh satu file **laporan_proyek_kodekoki.txt** namun kamu tetap bisa memiliki history dari revisi-revisi yang sudah kamu kerjakan.
-:::
+Nah dengan menggunakan **git**, kamu hanya butuh satu file **laporan-proyek-kodekoki.txt** namun kamu tetap bisa memiliki history dari revisi-revisi yang sudah kamu kerjakan.
+
+---
 
 Tapi ada banyak sekali fitur yang diberikan oleh git antara lain seperti:
 
@@ -188,9 +190,11 @@ $ git add catatan.txt
 
 Maka lokasi file saat ini berada di **Staging Area**
 
-:::info
+---
+
 Tips: Untuk menambahkan banyak file sekaligus gunakan `git add --all` atau `git add .`
-:::
+
+---
 
 ### Commit File
 
@@ -208,14 +212,16 @@ Contoh:
 $ git commit -m "Menambahkan catatan belanja" -m "Belanja bahan pokok senilai satu juta"
 ```
 
-:::info
+---
+
 **Pro Tips**
 
 - Gunakan maksimal 50 karakter untuk panjang pesan commit
 - Gunakan maksimal 72 karakter untuk panjang deskrisi commit dalam satu line.
 
 Tips ini bertujuan agar pesan atau deskripsi commit nya bisa mudah dibaca
-:::
+
+---
 
 ### Melihat Comit-an Sebelumnya
 
@@ -316,9 +322,11 @@ Pada saat anda sudah menyelesaikan fitur admin panel dengan nama branch `admin-p
 
 Maka branch `admin-panel` akan digabungkan ke branch `development`
 
-:::info
+---
+
 Untuk membatalkan penggabungan branch, gunakan perintah `git merge --abort`
-:::
+
+---
 
 <small>
 Referensi: <br />

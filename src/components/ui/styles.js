@@ -411,6 +411,19 @@ export const Articles = styled.article`
   & main pre > code {
     font-size: 0.75rem;
   }
+  & main code {
+    font-size: 0.75rem;
+  }
+  & main hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+  }
   & main > div > blockquote {
     padding: 0 2rem;
     line-height: 2;
