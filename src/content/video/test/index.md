@@ -4,7 +4,7 @@ date: 2019-12-15
 author: Dwiki Arlan
 featured: false
 published: false
-image: ./belajar-git.jpg
+image:
 description: Test Description
 category:
 tags:

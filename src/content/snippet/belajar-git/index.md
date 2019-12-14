@@ -4,7 +4,7 @@ date: 2019-12-15
 author: Dwiki Arlan
 featured: false
 published: true
-image: ./belajar-git.jpg
+image: ./cover.jpg
 description: Mempelajari Konsep Git Beserta Perintahnya
 category:
   - tools
