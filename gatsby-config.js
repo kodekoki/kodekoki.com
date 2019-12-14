@@ -16,8 +16,8 @@ module.exports = {
     description: configs.siteDescription,
     author: configs.author,
     siteUrl,
-    logo: `https://github.com/arrlancore/kodekoki.com/blob/master/src/images/logo-small.png?raw=true`,
-    keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
+    logo: `https://github.com/kodekoki/gallery/blob/master/asset/kodekoki3.png?raw=true`,
+    keywords: ['Web Development', 'Javascript', 'CSS', 'HTML'],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
