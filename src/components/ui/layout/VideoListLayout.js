@@ -56,7 +56,7 @@ export const videoListQuery = graphql`
             category
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }

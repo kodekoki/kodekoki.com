@@ -63,7 +63,7 @@ export const tagsListQuery = graphql`
             description
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }

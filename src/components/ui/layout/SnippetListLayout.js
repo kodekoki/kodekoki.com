@@ -56,7 +56,7 @@ export const snippetListQuery = graphql`
             category
             image {
               childImageSharp {
-                fluid {
+                fluid(quality: 90) {
                   src
                 }
               }
