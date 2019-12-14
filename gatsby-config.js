@@ -1,15 +1,21 @@
 const configs = require('./configs')
 const getBlogFeed = require('./src/components/utils/blogfeed')
-// const path = require('path')
 
-// const here = (...p) => path.join(__dirname, ...p)
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = configs.siteUrl,
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === 'production'
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
     title: configs.siteTitle,
     description: configs.siteDescription,
     author: configs.author,
-    siteUrl: configs.siteUrl,
+    siteUrl,
     logo: `https://github.com/arrlancore/kodekoki.com/blob/master/src/images/logo-small.png?raw=true`,
     keywords: ['Software Engineer', 'Javascript', 'Frontend', 'Backend'],
   },
@@ -191,9 +197,27 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-robots-txt',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    }, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     `gatsby-plugin-offline`,
   ],
 }
