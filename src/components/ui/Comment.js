@@ -13,9 +13,7 @@ const Comment = ({ title }) => {
   React.useEffect(() => {
     const gitalk = new Gitalk({
       clientID: '176a0a0e2d31fa0032be',
-      clientSecret:
-        process.env.GITALK_APP_SECRET ||
-        'f5dbc5d17210787e3cd89903e17285b828f613e1',
+      clientSecret: process.env.GITALK_APP_SECRET,
       repo: 'kodekoki.com',
       owner: 'kodekoki',
       admin: ['kodekoki'],
