@@ -15,6 +15,7 @@ module.exports = {
     title: configs.siteTitle,
     description: configs.siteDescription,
     author: configs.author,
+    lang: configs.siteLanguage,
     siteUrl,
     logo: `https://github.com/kodekoki/gallery/blob/master/asset/kodekoki3.png?raw=true`,
     keywords: ['Web Development', 'Javascript', 'CSS', 'HTML'],
@@ -39,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTIC_ID,
+        trackingId: process.env.GOOGLE_ANALYTIC_ID || 'UA-1234567',
       },
     },
     {

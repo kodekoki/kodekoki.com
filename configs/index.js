@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: 'KodeKoki', // Navigation and Site Title
   siteUrl: process.env.ROOT_URL || 'https://kodekoki.com', // Domain of your site. No trailing slash!
   siteUrlWww: 'https://www.kodekoki.com', // Domain of your site with www
-  siteLanguage: 'en', // Language Tag on <html> element
+  siteLanguage: 'id', // Language Tag on <html> element
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription:
     'Pelajari Resep Membuat Aplikasi Web Modern Bersama KodeKoki',
