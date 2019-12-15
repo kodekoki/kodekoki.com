@@ -1,7 +1,7 @@
 ---
 title: Panduan Belajar Git Untuk Pemula
 date: 2019-12-15
-modifiedDate: 2019-12-15
+modifiedDate: 2019-12-16
 author: Dwiki Arlan
 featured: false
 published: true
@@ -131,11 +131,13 @@ $ brew install git
 - Jika sudah selesai, lakukan cek versi untuk memastikan git terinstall dengan sukses.
 - Terakhir lakukan konfigurasi profil dengan cara yang sama dengan pengguna window diatas.
 
-## Git Terdistribusi
+## Konsep Dasar
 
 Sebagai sistem yang terdistribusi, berikut adalah gambaran distribusi git secara umum.
 
 ![alur-kerja-git](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/panduang-belajar-git.jpg?raw=true)
+
+Pada sistem terdistribusi server pusat **(remote repository)** akan menjadi penghubung antara beberapa **local repository** untuk melakukan kolaborasi. Namun git tidak bergantung kepada server pusat karena kebanyakan pekerjaan git akan dilakukan pada working area (area kerja), seperti melakukan `commit` / perubahan, membuat branch, melihat history, dll. Semua itu dapat dilakukan disaat offline / tanpa terhubung ke server.
 
 - **_Remote Repository_** merupakan repository yang terletak disisi server seperti private server atau layanan hosting git seperti github, bitbucket, gitlab dll. Repository ini juga digunakan sebagai penghubung antara beberapa _local repository_
 - **Area Kerja** adalah tempat atau suatu `branch` dimana developer melakukan pengkodingan.
@@ -146,8 +148,7 @@ Sebagai sistem yang terdistribusi, berikut adalah gambaran distribusi git secara
 
 Semua perintah / command git hanya dapat di eksekusi dari folder **Area Kerja**. Jika nama folder proyeknya adalah `proyek-kodekoki`. Maka gunakan terminal / command prompt untuk mengakses folder tersebut.
 
-Contoh:
-
+Untuk mengakses folder pada terminal / command prompt, gunakan perintah `cd [nama folder]`, Contoh:
 ```sh
 $ cd proyek-kodekoki
 ```
