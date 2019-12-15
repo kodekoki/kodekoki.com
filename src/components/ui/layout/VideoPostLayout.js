@@ -92,7 +92,8 @@ export const queryVideoPostBySlug = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
+        modifiedDate
         category
         description
         tags

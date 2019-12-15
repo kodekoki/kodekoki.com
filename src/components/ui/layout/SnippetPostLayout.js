@@ -10,6 +10,7 @@ import Tags from '../Tags'
 import VideoYoutube from '../VideoYoutube'
 import ArticleNavigation from '../ArticleNavigation'
 import ArticleInfo from '../ArticleInfo'
+import Comment from '../Comment'
 import { graphql } from 'gatsby'
 import { object } from 'prop-types'
 
@@ -64,6 +65,7 @@ const Post = ({ data }) => {
             </section>
           </main>
           <Tags tags={tags} />
+          <Comment title={title} />
           <ArticleNavigation
             next={next && next.node.fields.slug}
             prev={previous && previous.node.fields.slug}
@@ -93,7 +95,8 @@ export const querySnippetPostBySlug = graphql`
       frontmatter {
         title
         description
-        date(formatString: "MMMM DD, YYYY")
+        date
+        modifiedDate
         category
         tags
         author

@@ -12,11 +12,11 @@ const rootStyle = css`
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
   transition: all ease-in 0.3s;
 
-  & > h4 {
+  & > div > h4 {
     font-size: 0.825rem;
   }
-  & > div,
-  h4 {
+  & > div > div,
+  > div > h4 {
     margin: 0;
     cursor: pointer;
     padding: 1rem;
@@ -30,10 +30,9 @@ const rootStyle = css`
       -webkit-text-fill-color: transparent;
     }
   }
-  & > div {
+  & div > div {
     font-size: 0.75rem;
     padding-left: 1.25rem;
-    padding: 0.6rem 1rem;
     &:hover:first-of-type {
       background-image: none;
       -webkit-background-clip: none;
@@ -47,6 +46,7 @@ const styleOnFixed = css`
   overflow: auto;
   position: relative;
   margin: 0 auto 3rem;
+  max-height: calc(100vh - 80px);
   @media only screen and (min-width: ${theme.breakpoints[0]}) {
     position: -webkit-sticky;
     position: sticky;
@@ -98,25 +98,23 @@ const TableOfContent = ({ headings }) => {
 
   const listHeading = getHeading(headings)
   return listHeading[0] ? (
-    <div>
-      <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
-        <>
-          <div>{TITLE}</div>
-          {listHeading.map((data, indexData) => (
-            <React.Fragment key={indexData}>
-              {data.type === 'h2' && (
-                <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
-                  <strong>{data.title}</strong>
-                </Styled.h4>
-              )}
-              {data.type === 'h3' && (
-                <div onClick={() => onTitleClick(data.title, data.type)}>
-                  {data.title}
-                </div>
-              )}
-            </React.Fragment>
-          ))}
-        </>
+    <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
+      <div>
+        <div>{TITLE}</div>
+        {listHeading.map((data, indexData) => (
+          <React.Fragment key={indexData}>
+            {data.type === 'h2' && (
+              <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
+                <strong>{data.title}</strong>
+              </Styled.h4>
+            )}
+            {data.type === 'h3' && (
+              <div onClick={() => onTitleClick(data.title, data.type)}>
+                {data.title}
+              </div>
+            )}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   ) : null
