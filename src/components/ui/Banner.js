@@ -4,7 +4,7 @@ import { AnimatedWave, Section } from '.'
 import BannerImage from '../../assets/banner.svg'
 import theme from './theme'
 import styled from '@emotion/styled'
-import { keyframes, css } from '@emotion/core'
+import { keyframes } from '@emotion/core'
 import { string } from 'prop-types'
 
 const bannerAnimation = keyframes`
@@ -14,6 +14,18 @@ const bannerAnimation = keyframes`
   75% {
     transform: rotate(2deg)
   }
+`
+const BannerTitle = styled.h1`
+  color: rgb(255, 255, 255);
+  font-size: 3.5rem;
+  letter-spacing: -5px;
+  font-weight: bolder;
+  line-height: 0.9;
+  margin: 2rem 0;
+`
+
+const BannerDescription = styled.span`
+  color: #eee;
 `
 const ImageBannerContainer = styled.div`
   opacity: 0.8;
@@ -49,19 +61,8 @@ const Banner = ({ id, heading, description }) => {
       <Section backgroundColor="transparent">
         <BannerWrap>
           <div>
-            <h1
-              css={css`
-                color: rgb(255, 255, 255);
-                font-size: 3.5rem;
-                letter-spacing: -5px;
-                font-weight: bolder;
-                line-height: 0.9;
-                margin: 2rem 0;
-              `}
-            >
-              {heading}
-            </h1>
-            <span style={{ color: '#eee' }}>{description}</span>
+            <BannerTitle>{heading}</BannerTitle>
+            <BannerDescription>{description}</BannerDescription>
           </div>
           <ImageBannerContainer>
             <SvgWrapper>

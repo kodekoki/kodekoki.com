@@ -80,7 +80,19 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'gatsby-remark-code-title',
+            },
+          },
           `gatsby-remark-images`,
+          {
+            resolve: 'gatsby-remark-code-buttons',
+            options: {
+              tooltipText: `Copy`,
+            },
+          },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
@@ -106,7 +118,7 @@ module.exports = {
               // stripping.
               // A suggested value for English speakers is the non-ascii
               // character '›'.
-              inlineCodeMarker: null,
+              inlineCodeMarker: true,
               // This lets you set up language aliases.  For example,
               // setting this to '{ sh: "bash" }' will let you use
               // the language "sh" which will highlight using the

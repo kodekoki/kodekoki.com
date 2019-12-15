@@ -1,6 +1,7 @@
 ---
 title: Panduan Belajar Git Untuk Pemula
 date: 2019-12-15
+modifiedDate: 2019-12-15
 author: Dwiki Arlan
 featured: false
 published: true
@@ -32,8 +33,6 @@ Pada situs [resminya, git](https://git-scm.com/) menyatakan bahwa git itu **muda
 
 Git bertugas untuk mengontrol versi, apa maksudnya?
 
----
-
 Misalkan dalam suatu proyek kamu ditugaskan untuk membuat laporan proyek dalam suatu file txt. Setelah selesai kamu menyimpannya dengan nama **laporan-proyek-kodekoki.txt**
 
 Setelah beberapa saat kamu melakukan revisi terhadap laporan tersebut, tapi sebelum melakukan revisi kamu tidak mau kehilangan informasi yang ada pada file aslinya. Kamu pun membuat file salinan baru dengan nama **laporan-proyek-kodekoki-revisi-1.txt**
@@ -47,8 +46,6 @@ Dan begitu seterusnya, jika ada 3 revisi maka akan ada file seperti berikut di f
 - **laporan-proyek-kodekoki-revisi-final.txt**
 
 Nah dengan menggunakan **git**, kamu hanya butuh satu file **laporan-proyek-kodekoki.txt** namun kamu tetap bisa memiliki history dari revisi-revisi yang sudah kamu kerjakan.
-
----
 
 Tapi ada banyak sekali fitur yang diberikan oleh git antara lain seperti:
 
@@ -84,7 +81,7 @@ Sebelum melakukan instalasi, kamu bisa cek apakah pada komputer kamu sudah terin
 
 Jika git sudah terinstall, kamu akan melihat pesan seperti `git version X.XX.X` dimana X adalah versi git yang sudah terinstal di komputer. Contohnya seperti berikut:
 
-```git
+```sh
 $ git --version
 git version 2.22.0
 ```
@@ -103,7 +100,7 @@ Kunjungi situs resmi git halaman [download ini](https://git-scm.com/downloads), 
 - Jika sudah selesai, buka command prompt dan ketikan `git --version`. Jika instalasi berhasil kamu akan melihat versi git.
 - Kemudian lakukan konfigurasi profil seperti berikut:
 
-```git
+```sh
 $ git config --global user.name "Mr Koki"
 $ git config --global user.email "mr.koki@kodekoki.com"
 ```
@@ -115,7 +112,7 @@ $ git config --global user.email "mr.koki@kodekoki.com"
 - Buka terminal
 - Ketik perintah berikut untuk menjalankan instalasi
 
-```git
+```sh
 $ sudo apt-get update
 $ sudo apt-get install git
 ```
@@ -127,7 +124,7 @@ $ sudo apt-get install git
 
 - Install git menggunakan file installer yang sudah didownload atau **alternative nya** bisa menggunakan brew dengan perintah berikut pada terminal:
 
-```git
+```sh
 $ brew install git
 ```
 
@@ -151,7 +148,7 @@ Semua perintah / command git hanya dapat di eksekusi dari folder **Area Kerja**.
 
 Contoh:
 
-```git
+```sh
 $ cd proyek-kodekoki
 ```
 
@@ -159,8 +156,8 @@ $ cd proyek-kodekoki
 
 Untuk membuat repository baru gunakan perintah `git init`
 
-```git
-git init
+```sh
+$ git init
 Initialized empty Git repository in /Users/proyek-kodekoki/.git/
 ```
 
@@ -168,7 +165,7 @@ Initialized empty Git repository in /Users/proyek-kodekoki/.git/
 
 Untuk melihat file yang sedang di tracking dan belum ditracking gunakan command `git status`
 
-```git
+```sh
 $ git status
 On branch master
 
@@ -184,17 +181,13 @@ Untuk memulai men-traking sebuah file gunakan `git add [namafile]`
 
 Contoh jika pada folder terdapat file baru bernama `catatan.txt`:
 
-```git
+```sh
 $ git add catatan.txt
 ```
 
 Maka lokasi file saat ini berada di **Staging Area**
 
----
-
 Tips: Untuk menambahkan banyak file sekaligus gunakan `git add --all` atau `git add .`
-
----
 
 ### Commit File
 
@@ -208,26 +201,21 @@ Gunakan `git commit -m [pesan/nama commit] -m [deskripsi commit]` untuk melakuka
 
 Contoh:
 
-```git
+```sh
 $ git commit -m "Menambahkan catatan belanja" -m "Belanja bahan pokok senilai satu juta"
 ```
 
----
+<div class="info">
+<strong>Pro Tips:</strong>
+<p>Gunakan maksimal 50 karakter untuk panjang pesan commit & Gunakan maksimal 72 karakter untuk panjang deskripsi commit per baris</p>
+<p>  Hal ini bertujuan agar pesan atau deskripsi commit nya bisa mudah dibaca</p>
+</div>
 
-**Pro Tips**
-
-- Gunakan maksimal 50 karakter untuk panjang pesan commit
-- Gunakan maksimal 72 karakter untuk panjang deskrisi commit dalam satu line.
-
-Tips ini bertujuan agar pesan atau deskripsi commit nya bisa mudah dibaca
-
----
-
-### Melihat Comit-an Sebelumnya
+### Melihat Commit-an Sebelumnya
 
 Untuk melihat history commit gunakan `git log`
 
-```git
+```sh
 $ git log
 
 commit ad304e8d404f158119f6b372dcbf6268dd8fa5ae (HEAD -> master)
@@ -248,13 +236,13 @@ Untuk mengambil / mengcopy / cloning suatu proyek yang ada pada **remote reposit
 
 Contoh:
 
-```git
+```sh
 $ git clone https://github.com/kodekoki/contoh-proyek-kodekoki.git
 ```
 
 ### Branching
 
-Setiap repository menggunakan branch `master` sebagai branch utamanya pada. Branching digunakan pada saat mengerjakan fitur baru atau memperbaiki bugs (pada **area kerja**) tanpa harus merubah original file yang ada pada branch `master`. Jadi kodingan aslinya akan tetap aman pada **local repository**.
+Setiap repository menggunakan branch `master` sebagai branch utamanya. Branching digunakan pada saat mengerjakan fitur baru atau memperbaiki bugs (pada **area kerja**) tanpa harus merubah original file yang ada pada branch `master`. Jadi kodingan aslinya akan tetap aman pada **local repository**.
 
 Artinya suatu branch dapat menyimpan versi baru dari suatu proyek tanpa merubah apapun dari versi aslinya.
 
@@ -281,8 +269,8 @@ Jika sudah ada banyak perubahan pada **remote repository**. Maka gunakan `git pu
 
 Contoh:
 
-```git
-$ git pull origin master
+```sh
+git pull origin master
 ```
 
 `origin` adalah nama remote server yang dituju dan `master` adalah branch yang akan diambil.
@@ -293,7 +281,7 @@ Jika sudah melakukan perubahan pada **local repository**. Maka untuk mengupdate 
 
 Contoh:
 
-```git
+```sh
 $ git push origin master
 ```
 
@@ -309,7 +297,7 @@ Jika sudah mempunyai proyek di **local repository** dan ingin mengirimkannya ke 
 
 Contoh:
 
-```git
+```sh
 $ git remote add origin https://github.com/kodekoki/contoh-proyek-kodekoki.git
 ```
 
@@ -322,14 +310,10 @@ Pada saat anda sudah menyelesaikan fitur admin panel dengan nama branch `admin-p
 
 Maka branch `admin-panel` akan digabungkan ke branch `development`
 
----
-
 Untuk membatalkan penggabungan branch, gunakan perintah `git merge --abort`
 
----
-
 <small>
-Referensi: <br />
-- chris.beams.io/posts/git-commit <br />
-- https://guides.github.com/introduction/git-handbook/#basic-git
+Referensi:
+<div>- chris.beams.io/posts/git-commit </div>
+<div>- https://guides.github.com/introduction/git-handbook/#basic-git</div>
 </small>

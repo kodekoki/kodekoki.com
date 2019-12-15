@@ -93,7 +93,8 @@ export const querySnippetPostBySlug = graphql`
       frontmatter {
         title
         description
-        date(formatString: "MMMM DD, YYYY")
+        date
+        modifiedDate
         category
         tags
         author

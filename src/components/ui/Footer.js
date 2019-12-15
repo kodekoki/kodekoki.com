@@ -9,7 +9,7 @@ const Footer = () => (
     {/* <WaveBar color={theme.colors.primary} direction="down" /> */}
     <Section
       backgroundColor={theme.colors.primary}
-      id="about"
+      id="footer-section"
       light
       enableWave={false}
       waveBottom={false}

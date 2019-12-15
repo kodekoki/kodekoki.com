@@ -360,9 +360,79 @@ export const Articles = styled.article`
     width: 100%;
     height: 100%;
   }
-  & main h2 {
+  & main #content-article > h2 {
     text-transform: capitalize;
-    margin-top: 0;
+    margin-top: 4rem;
+  }
+
+  & main #content-article > h3 {
+    text-transform: capitalize;
+    margin-top: 3.25rem;
+  }
+
+  & main #content-article > h4 {
+    text-transform: capitalize;
+    margin-top: 2.5rem;
+  }
+
+  main .info {
+    border-left: 6px solid ${theme.colors.primary};
+    padding: 1.25rem 0.5rem;
+    margin: 1rem 0;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  & main p > code,
+  main span > code,
+  main div > code,
+  main strong > code,
+  main li > code {
+    display: inline-flex;
+    overflow-x: auto;
+    max-width: 100%;
+    background: ${theme.colors.light};
+    color: ${theme.colors.dark};
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #bcbec0;
+    text-shadow: none;
+  }
+
+  main .gatsby-remark-code-title {
+    padding: 0.5em 1em;
+    font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+      'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+      'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+      monospace;
+    background-color: ${theme.colors.primary};
+    color: white;
+    z-index: 0;
+    display: inline;
+    position: relative;
+    bottom: -46px;
+    font-size: 0.75rem;
+    border-radius: 2px;
+  }
+
+  & .gatsby-code-button-container {
+    top: 45px;
+    z-index: 0;
+    & div > svg {
+      fill: #12c2e9;
+      width: 20px;
+      height: 20px;
+      transition: all ease-in 0.1s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(1.25);
+      }
+    }
+    @media only screen and (min-width: ${theme.breakpoints[0]}) {
+      top: 50px;
+    }
   }
 
   & #content-article > h2,
@@ -413,6 +483,7 @@ export const Articles = styled.article`
   }
   & main code {
     font-size: 0.75rem;
+    overflow-x: auto;
   }
   & main hr {
     border: 0;

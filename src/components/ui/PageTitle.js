@@ -12,7 +12,7 @@ const PageTitle = ({ backgroundColor, title, description, image }) => {
     <section>
       <Section
         backgroundColor={backgroundColorContainer}
-        id="about"
+        id="page-title-section"
         light
         enableWave={false}
         waveBottom={false}
