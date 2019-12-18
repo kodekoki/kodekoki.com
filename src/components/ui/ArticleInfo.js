@@ -19,7 +19,7 @@ const ArticleInfo = ({
   timeReading,
 }) => (
   <div css={styleInfo}>
-    <BreadCrumb type={type} />
+    {type && <BreadCrumb type={type} />}
     <LabelInfo
       field={constant.CREATED_AT}
       value={new Date(date).toLocaleDateString()}
