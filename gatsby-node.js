@@ -14,6 +14,7 @@ const kebabCase = string =>
 
 const POST_TYPE = {
   BLOG: 'blog',
+  PAGE: 'page',
   VIDEO: 'video',
   SNIPPET: 'snippet',
   TAGS: 'tags',
@@ -25,6 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const value = createFilePath({ node, getNode })
     const dataVideo = new RegExp('/content/video/')
     const dataSnippet = new RegExp('/content/snippet/')
+    const dataPage = new RegExp('/content/page/')
 
     let slug
     let url
@@ -38,6 +40,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         value: POST_TYPE.VIDEO,
       })
     }
+
     if (dataSnippet.test(node.fileAbsolutePath)) {
       slug = value.replace(`/${POST_TYPE.SNIPPET}/`, '').replace(/\/$/, '')
       url = `/${POST_TYPE.SNIPPET}${slug}`
@@ -45,6 +48,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: `type`,
         node,
         value: POST_TYPE.SNIPPET,
+      })
+    }
+
+    if (dataPage.test(node.fileAbsolutePath)) {
+      slug = value.replace(`/`, '').replace(/\/$/, '')
+      url = `/${slug}`
+      createNodeField({
+        name: `type`,
+        node,
+        value: POST_TYPE.PAGE,
       })
     }
 
@@ -237,6 +250,72 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         currentPage: i + 1,
         numPages: snippetNumPages,
+      },
+    })
+  })
+
+  /**
+   * ***PAGE POST QUERY***
+   */
+  const pages = await graphql(`
+    query videoPost {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: {
+          frontmatter: { published: { ne: false } }
+          fileAbsolutePath: { regex: "//content/page//" }
+        }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+              type
+            }
+            frontmatter {
+              title
+              date
+              author
+              category
+              tags
+              featured
+              published
+              description
+            }
+            html
+          }
+        }
+      }
+    }
+  `)
+  if (pages.errors) {
+    console.error(pages.errors)
+    Promise.reject(pages.errors)
+  }
+
+  // 2.2 Our posts are here
+  const pagePosts = pages.data.allMarkdownRemark.edges
+  const pagePostLayout = path.resolve(
+    `./src/components/ui/layout/GeneralPostLayout.js`
+  )
+
+  // 3 Loop throught all posts
+  pagePosts.forEach((post, index, arr) => {
+    const prev = arr[index - 1]
+    const next = arr[index + 1]
+
+    post.node.frontmatter.tags.forEach(tag => {
+      tags.push(tag)
+    })
+
+    // 3.1 Finally create posts
+    createPage({
+      path: post.node.fields.slug,
+      component: pagePostLayout,
+      context: {
+        slug: post.node.fields.slug,
+        prev: prev,
+        next: next,
       },
     })
   })

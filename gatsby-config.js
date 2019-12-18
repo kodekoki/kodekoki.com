@@ -78,6 +78,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/page`,
+        name: `page`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -218,6 +225,12 @@ module.exports = {
             blogUrl: 'https://kodekoki.com/snippet',
             output: '/snippet/rss.xml',
             title: 'KodeKoki Snippet RSS Feed',
+          }),
+          getBlogFeed({
+            filePathRegex: `//src/content/page//`,
+            blogUrl: 'https://kodekoki.com',
+            output: '/post/rss.xml',
+            title: 'KodeKoki Post RSS Feed',
           }),
         ],
       },

@@ -11,6 +11,33 @@ const rootStyle = css`
   margin-left: 2rem;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
   transition: all ease-in 0.3s;
+  overflow: auto;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+
+  @media only screen and (min-width: ${theme.breakpoints[0]}) {
+    overflow: hidden;
+    &:hover {
+      overflow: overlay;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  & #title-toc {
+    padding-left: 1rem;
+  }
 
   & > div > h4 {
     font-size: 0.825rem;
@@ -33,19 +60,23 @@ const rootStyle = css`
   & div > div {
     font-size: 0.75rem;
     padding-left: 1.25rem;
-    &:hover:first-of-type {
-      background-image: none;
-      -webkit-background-clip: none;
-      -webkit-text-fill-color: none;
-      border-left: 0 solid rgba(0, 0, 0, 0.025);
+    &:first-of-type {
+      &:hover {
+        background-image: none;
+        -webkit-background-clip: none;
+        -webkit-text-fill-color: none;
+        border-left: 0 solid rgba(0, 0, 0, 0.025);
+      }
+      @media only screen and (min-width: ${theme.breakpoints[0]}) {
+        display: none;
+      }
     }
   }
 `
 
 const styleOnFixed = css`
-  overflow: auto;
   position: relative;
-  margin: 0 auto 3rem;
+  margin: 0 auto;
   max-height: calc(100vh - 80px);
   @media only screen and (min-width: ${theme.breakpoints[0]}) {
     position: -webkit-sticky;
@@ -100,7 +131,7 @@ const TableOfContent = ({ headings }) => {
   return listHeading[0] ? (
     <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
       <div>
-        <div>{TITLE}</div>
+        <div id="title-toc">{TITLE}</div>
         {listHeading.map((data, indexData) => (
           <React.Fragment key={indexData}>
             {data.type === 'h2' && (
