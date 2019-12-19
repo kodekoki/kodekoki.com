@@ -14,6 +14,7 @@ export default {
     tertiary: '#FFF500',
     background: '#232526',
     muted: '#f6f6f6',
+    blue: '#00aeef',
     primaryRgba: (opacity = 1) => `rgb(35,37,38, ${opacity})`,
   },
   fonts: {

@@ -26,13 +26,13 @@ const Post = ({ data }) => {
     videoId,
     modifiedDate,
   } = data.markdownRemark.frontmatter
-  const { timeToRead } = markdownRemark
+  const { timeToRead, excerpt } = markdownRemark
 
   return (
     <Layout>
       <SEO
         title={title}
-        description={description}
+        description={excerpt}
         image={image && image.childImageSharp.fluid.src}
       />
       <Header />
@@ -82,6 +82,7 @@ export const queryPostBySlug = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
+      excerpt
       fields {
         type
       }
