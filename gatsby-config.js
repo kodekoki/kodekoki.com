@@ -17,7 +17,7 @@ module.exports = {
     author: configs.author,
     lang: configs.siteLanguage,
     siteUrl,
-    logo: `https://github.com/kodekoki/gallery/blob/master/asset/kodekoki3.png?raw=true`,
+    logo: `https://github.com/kodekoki/gallery/blob/master/asset/kodekoki3blue.png?raw=true`,
     keywords: ['Web Development', 'Javascript', 'CSS', 'HTML'],
   },
   plugins: [
