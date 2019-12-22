@@ -1,7 +1,7 @@
 ---
 title: Panduan Belajar Git Untuk Pemula
 date: 2019-12-15
-modifiedDate: 2019-12-16
+modifiedDate: 2019-12-22
 author: Dwiki Arlan
 featured: false
 published: true
@@ -19,59 +19,57 @@ tags:
 
 ## Apa itu git?
 
-Git awalnya dibuat oleh Linus Torvalds pada tahun 2005, yang juga merupakan pencipta kernel sistem operasi linux.
+Git awalnya dibuat oleh Linus Torvalds pada tahun 2005, yang juga merupakan pencipta kernel sistem operasi linux. Di acara [TED Talk](https://www.ted.com/talks/linus_torvalds_the_mind_behind_linux?language=id) tahun 2016, dia mengatakan bahwa git awalnya diciptakan untuk pemeliharaan kode program untuk proyek linux nya, dimana ada ribuan orang yang bekerja pada satu proyek tersebut.
 
 Dikutip dari situs resminya. Git adalah **_version control system_** (sistem pengontrol versi) terdistribusi yang dirancang untuk menangani proyek kecil hingga besar dengan kecepatan dan efisiensi.
 
 **Apa itu _version control system_ ?** Version Control System adalah suatu sistem yang merekam perubahan pada satu atau beberapa file dari waktu ke waktu sehingga developer dapat mengetahui semua perubahan yang telah dilakukan pada file tersebut.
 
-Git merupakan salah satu _version control system_ yang paling populer saat ini dibanding dengan vcs lainnya seperti `subversion` atau `mercurial`.
-
-Pada situs [resminya, git](https://git-scm.com/) menyatakan bahwa git itu **mudah dipelajari** dan **memiliki kinerja yang cepat**.
+Git merupakan salah satu _version control system_ yang paling populer saat ini dibanding dengan vcs lainnya seperti subversion, CVS, atau mercurial.
 
 ### Kenapa harus menggunakan git?
 
-Git bertugas untuk mengontrol versi, apa maksudnya?
+Berikut adalah 3 alasan utama kenapa developer harus menggunakan git:
 
-Misalkan dalam suatu proyek kamu ditugaskan untuk membuat laporan proyek dalam suatu file txt. Setelah selesai kamu menyimpannya dengan nama **laporan-proyek-kodekoki.txt**
+**1. Pengontrol Versi**
+Git akan merekam semua perubahan kode yang di `commit`.  Jika kamu ingin mengembalikan kodingan kamu ke versi sebelumnya atau bahkan versi satu tahun yang lalu git dapat mengembalikannya dengan mudah.
 
-Setelah beberapa saat kamu melakukan revisi terhadap laporan tersebut, tapi sebelum melakukan revisi kamu tidak mau kehilangan informasi yang ada pada file aslinya. Kamu pun membuat file salinan baru dengan nama **laporan-proyek-kodekoki-revisi-1.txt**
+**2. Media Kolaborasi**
+Jika kamu bekerja dalam suatu tim untuk membuat atau mengembangkan suatu aplikasi, git dapat menyinkronkan kodingan kamu dengan developer lain bahkan kamu bisa mengerjakan file yang sama dalam satu waktu.
 
-Dan begitu seterusnya, jika ada 3 revisi maka akan ada file seperti berikut di folder kamu:
+**3. Penyimpanan Kode Yang Terdistribusi**
+Saat mengerjakan proyek tiba-tiba harddisk komputer kamu rusak dan semua data nya hilang, lalu bagaimana?  Git menyediakan penyimpanan lokal dan *cloud storage*. Kode yang ada pada *cloud* akan dijadikan pusat penyimpanan, sehingga kamu bisa dengan mudah mengambil kembali data master yang ada pada *cloud storage* tersebut. Github adalah salah satu contoh *cloud storage* yang banyak digunakan.
 
-- **laporan-proyek-kodekoki.txt** (File pertama)
-- **laporan-proyek-kodekoki-revisi-1.txt**
-- **laporan-proyek-kodekoki-revisi-2.txt**
-- **laporan-proyek-kodekoki-revisi-3.txt**
-- **laporan-proyek-kodekoki-revisi-final.txt**
 
-Nah dengan menggunakan **git**, kamu hanya butuh satu file **laporan-proyek-kodekoki.txt** namun kamu tetap bisa memiliki history dari revisi-revisi yang sudah kamu kerjakan.
+### Github
 
-Tapi ada banyak sekali fitur yang diberikan oleh git antara lain seperti:
+Apa itu Github ? **Github adalah suatu layanan hosting atau cloud storage untuk git repository.**
 
-- Fitur _Branching_ / Memisahkan versi master menjadi suatu _branch_ baru yang nantinya dapat dengan mudah digabungkan kembali
-- Fitur _Pull request_ yang dapat membantu dalam menggabungkan suatu versi branch ke versi lain dimana perubahannya dapat dilihat dulu sebelum di gabungkan.
-- Fitur _Staging Area_ yang merupakan suatu area yand dapat digunakan untuk mereview perubahan pada file yang sudah dilakukan sebelum di `commit`
+Sedang kan **git adalah sebuah tools** untuk memanajemen versi kodinganmu.
 
-Selengkapnya akan kita bahas pada bagian [Cara Penggunaan](#Cara-Penggunaan)
+<div class="info">
+<strong>📝 Catatan</strong>
+<p>Jangan sampai salah persepsi antara perbedaan git dan github, dimana github digunakan untuk untuk menghosting / upload proyek yang menggunakan git.</p>
+</div>
 
-#### Github
+Kalau kamu belum punya akun github silahkan daftar dulu di [github.com](https://github.com/join).
 
-Setiap developer itu biasanya memiliki [akun github](https://github.com/join).
+**Kenapa sih github?**
 
-Apa itu Github ? **Github adalah suatu layanan hosting untuk git repository.**
+- Selain buat *versioning*, github juga merupakan komunitas open source terbesar didunia, kamu bisa menemukan banyak program yang diberikan secara gratis disana. Selain itu kamu berkesempatan berkenalan dengan *developer-developer* dari seluruh dunia, berkolaborasi, belajar *best practice* dan bisa terlibat proyek open source.
+- Github menyediakan fitur *code review*, dimana kamu atau orang lain dapat mengevaluasi hasil kodinganmu dengan mudah dan github juga menyediakan beberapa tools yang dapat memeriksa kesalahan yang ada pada kodingan mu secara otomatis.
+- Github juga menjadi tempat untuk memperlihatkan portfolio / karyamu sebagai seorang developer, rekruiter perusahaan akan menjadikan profil github mu sebagai bahan evaluasi.
+- Digunakan oleh perusahaan-perusahaan besar seperti facebook, amazon, microsoft, yahoo dan masih banyak lagi.
 
-Sedang kan **git adalah sebuah tools** untuk _versioning_.
+### Git Repository
 
-Jelas sekali tidak sama dimana github digunakan untuk untuk menghosting/upload proyek yang menggunakan git.
-
-#### Git Repository
-
-Pada suatu proyek yang menggunakan git, git akan membuat sebuah folder bernama `.git` di dalam folder proyek. Folder `.git` inilah yang akan digunakan git untuk menyimpan semua perubahan yang ada pada folder proyek.
+Git repository adalah sebuah folder dengan nama `.git` yang dibuat pada folder utama proyek dan akan digunakan oleh git untuk menyimpan semua perubahan yang ada pada folder proyek.
 
 Setiap folder proyek yang menggunakan git disebut dengan repository atau sering juga disebut secara singkat dengan _repo_.
 
-## Cara Instalasi
+Terdapat 2 macam repository, yaitu *local repository* dan *remote repository*.
+
+## Cara Instal
 
 Sebelum melakukan instalasi, kamu bisa cek apakah pada komputer kamu sudah terinstall git atau belum, dengan cara:
 
@@ -88,11 +86,11 @@ git version 2.22.0
 
 Jika belum ada, silahkan download terlebih dahulu.
 
-#### Download
+### Download
 
-Kunjungi situs resmi git halaman [download ini](https://git-scm.com/downloads), lalu pilih git sesuai sistem operasi. Terdapat pilihan installer untuk MacOS & Windows dan perintah instalasi menggunakan terminal untuk Linux/Unix.
+Kunjungi situs resmi git di halaman [download ini](https://git-scm.com/downloads), lalu pilih git sesuai sistem operasi. Terdapat pilihan installer untuk MacOS & Windows dan perintah instalasi menggunakan terminal untuk Linux/Unix.
 
-#### Instalasi:
+### Instalasi:
 
 #### 1. Pengguna Windows
 
@@ -133,18 +131,18 @@ $ brew install git
 
 ## Konsep Dasar
 
-Sebagai sistem yang terdistribusi, berikut adalah gambaran distribusi git secara umum.
+Sebagai *version control* sistem yang terdistribusi, berikut adalah gambaran distribusi git secara umum.
 
-![alur-kerja-git](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/panduang-belajar-git.jpg?raw=true)
+![konsep-git](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20konsep.png?raw=true)
 
-Pada sistem terdistribusi server pusat **(remote repository)** akan menjadi penghubung antara beberapa **local repository** untuk melakukan kolaborasi. Namun git tidak bergantung kepada server pusat karena kebanyakan pekerjaan git akan dilakukan pada working area (area kerja), seperti melakukan `commit` / perubahan, membuat branch, melihat history, dll. Semua itu dapat dilakukan disaat offline / tanpa terhubung ke server.
+Pada sistem terdistribusi server pusat **(remote repository)** akan menjadi penghubung antara beberapa **local repository** untuk melakukan kolaborasi. Namun selama proses *development*, git tidak bergantung kepada server pusat, kebanyakan pekerjaan git akan dilakukan pada working area (area kerja), seperti melakukan `commit` / perubahan, membuat branch, melihat history, dll. Semua itu dapat dilakukan disaat offline / tanpa terhubung ke server.
 
 - **_Remote Repository_** merupakan repository yang terletak disisi server seperti private server atau layanan hosting git seperti github, bitbucket, gitlab dll. Repository ini juga digunakan sebagai penghubung antara beberapa _local repository_
 - **Area Kerja** adalah tempat atau suatu `branch` dimana developer melakukan pengkodingan.
 - **_Staging Area_** merupakan tempat sementara untuk file-file yang akan di `commit`
 - Setelah melakukan `commit` maka file akan ditempatkan pada **_Local Repository_**
 
-## Cara Penggunaan
+## Cara Penggunaan Perintah
 
 Semua perintah / command git hanya dapat di eksekusi dari folder **Area Kerja**. Jika nama folder proyeknya adalah `proyek-kodekoki`. Maka gunakan terminal / command prompt untuk mengakses folder tersebut.
 
@@ -154,7 +152,7 @@ Untuk mengakses folder pada terminal / command prompt, gunakan perintah `cd [nam
 $ cd proyek-kodekoki
 ```
 
-### Membuat Repository
+### 1. Membuat Repository dengan `init`
 
 Untuk membuat repository baru gunakan perintah `git init`
 
@@ -163,7 +161,7 @@ $ git init
 Initialized empty Git repository in /Users/proyek-kodekoki/.git/
 ```
 
-### Cek Status
+### 2. Cek Status Commit
 
 Untuk melihat file yang sedang di tracking dan belum ditracking gunakan command `git status`
 
@@ -175,7 +173,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-### Traking File
+### 3. Traking File Dengan `add`
 
 Untuk memulai men-traking sebuah file gunakan `git add [namafile]`
 
@@ -186,20 +184,28 @@ Contoh jika pada folder terdapat file baru bernama `catatan.txt`:
 ```sh
 $ git add catatan.txt
 ```
+![git-add](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20add.gif?raw=true)
 
-Maka lokasi file saat ini berada di **Staging Area**
+
+File dipindahkan ke **Staging Area**
 
 Tips: Untuk menambahkan banyak file sekaligus gunakan `git add --all` atau `git add .`
 
-### Commit File
+### 4. Commit File
+
+Commit digunakan untuk menyimpan perubahan, dimana perubahan tersebut disimpan pada sebuah *log* / catatan *history* git.
 
 Gunakan `git commit` untuk `commit` file menggunakan dialog text. Sebuah dialog terbuka untuk memasukan pesan `commit`.
 
 Atau
 
-Gunakan `git commit -m [pesan/nama commit] -m [deskripsi commit]` untuk melakukan penyimpanan file dan menambahkan file ke **Local repository** tanpa dialog text.
+Gunakan `git commit -m [pesan/nama commit] -m [deskripsi commit]` untuk melakukan `commit` tanpa dialog text.
 
 `[pesan commit]` bersifat wajib di input dan `[deskripsi commit]` bersifat _optional_
+
+![git-commit](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20commit.gif?raw=true)
+
+Maka file dipindahkan ke **local repository**
 
 Contoh:
 
@@ -208,12 +214,12 @@ $ git commit -m "Menambahkan catatan belanja" -m "Belanja bahan pokok senilai sa
 ```
 
 <div class="info">
-<strong>Pro Tips:</strong>
+<strong>📝 Pro Tips:</strong>
 <p>Gunakan maksimal 50 karakter untuk panjang pesan commit & Gunakan maksimal 72 karakter untuk panjang deskripsi commit per baris</p>
 <p>  Hal ini bertujuan agar pesan atau deskripsi commit nya bisa mudah dibaca</p>
 </div>
 
-### Melihat Commit-an Sebelumnya
+### 5. Melihat Log
 
 Untuk melihat history commit gunakan `git log`
 
@@ -232,9 +238,13 @@ Date:   Sat Dec 14 12:33:05 2019 +0700
 
 Disini akan terlihat siapa, kapan dan pesan apa yang ada pada setiap `commit`. Jika ada 100 komit semua _history_ dapat diakses melalui `git log` ini.
 
-### Meng-copy Remote Repository
+Untuk keluar dari log tekan huruf `q`
+
+### 6. Copy Repository Dengan `clone`
 
 Untuk mengambil / mengcopy / cloning suatu proyek yang ada pada **remote repository** ke **local repository** gunakan `git clone [alamat remote repository]`
+
+![git-clone](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20clone.gif?raw=true)
 
 Contoh:
 
@@ -242,7 +252,7 @@ Contoh:
 $ git clone https://github.com/kodekoki/contoh-proyek-kodekoki.git
 ```
 
-### Branching
+### 7. Branching
 
 Setiap repository menggunakan branch `master` sebagai branch utamanya. Branching digunakan pada saat mengerjakan fitur baru atau memperbaiki bugs (pada **area kerja**) tanpa harus merubah original file yang ada pada branch `master`. Jadi kodingan aslinya akan tetap aman pada **local repository**.
 
@@ -257,17 +267,19 @@ Pada contoh diatas terdapat 3 branch tambahan selain master:
 2. Branch Admin Panel digunakan khusus untuk membuat fitur admin panel
 3. Branch User Panel digunakan khusus untuk membuat fitur user panel
 
-Setelah pembuatan fitur selesai, maka branch admin panel dan user panel akan di `merge` ke branch development. Fitur tersebut akan di test di branch development sebelum di `merge` ke branch master.
+Setelah pembuatan fitur selesai, maka branch admin panel dan user panel akan di `merge` / digabungkan ke branch development. Fitur tersebut akan di test di branch development sebelum di `merge` ke branch master.
 
 Untuk melihat list branch dan branch yang sedang digunakan gunakan `git branch`
 
-### Pindah Antar Branch
+#### Pindah Branch Dengan `checkout`
 
 Misalkan untuk pindah area kerja dari branch `master` ke branch `develoment` gunakan `git checkout development`. Jika branch `development` belum pernah dibuat gunakan perintah `git checkout -b development` maka secara otomatis branch `development` akan dibuat sekaligus dijadikan sebagai area kerja.
 
-### Menarik Commit Dari Remote Server
+### 8. Mendapatkan Update Dengan `pull`
 
-Jika sudah ada banyak perubahan pada **remote repository**. Maka gunakan `git pull [nama remote server] [nama branch]` untuk mengambilan versi terbaru dari **remote repository** ke **local repository**
+Jika sudah ada banyak perubahan pada **remote repository**. Maka gunakan `git pull [nama remote server] [nama branch]` untuk mengambilan versi terbaru dari **remote repository** ke **local repository** kemudian di `merge` ke **area kerja**.
+
+![git-pull](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20pull.gif?raw=true)
 
 Contoh:
 
@@ -277,9 +289,17 @@ git pull origin master
 
 `origin` adalah nama remote server yang dituju dan `master` adalah branch yang akan diambil.
 
-### Melakukan Push Ke Remote Server
+### 9. Update Dari Server Ke Lokal Dengan `fetch`
 
-Jika sudah melakukan perubahan pada **local repository**. Maka untuk mengupdate **remote repository** dengan file **local repository** gunakan `git push [nama remote server] [nama branch]`
+Untuk memperbarui versi *local repository* dengan *remote repository* gunakan perintah `git fetch`
+
+![git-fetch](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20fetch.gif?raw=true)
+
+### 10. Update Ke Server Dengan `push`
+
+Untuk mengupdate **remote repository** dengan file dari **local repository** gunakan `git push [nama remote server] [nama branch]`
+
+![git-push](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20push.gif?raw=true)
 
 Contoh:
 
@@ -287,9 +307,9 @@ Contoh:
 $ git push origin master
 ```
 
-`origin` adalah nama remote server yang dituju dan `master` adalah branch yang akan diambil.
+`origin` adalah nama remote server yang dituju dan `master` adalah branch yang akan dituju.
 
-### Menambahkan Remote Server Baru
+### 11. Menambahkan Remote Server Baru
 
 Jika sudah mempunyai proyek di **local repository** dan ingin mengirimkannya ke sebuah **remote repository** baru, langkah-langkahnya adalah seperti berikut:
 
@@ -303,7 +323,7 @@ Contoh:
 $ git remote add origin https://github.com/kodekoki/contoh-proyek-kodekoki.git
 ```
 
-### Penggabungan Branch
+### 12. Menggabungkan Dengan `merge`
 
 Pada saat kamu sudah menyelesaikan fitur admin panel dengan nama branch `admin-panel` dan ingin digabungkan / merge ke branch `development`, caranya:
 
@@ -314,7 +334,111 @@ Maka branch `admin-panel` akan digabungkan ke branch `development`
 
 Untuk membatalkan penggabungan branch, gunakan perintah `git merge --abort`
 
-<small>
+### 13. Menyimpan Sementara Dengan `stash`
+
+Jika kamu sedang mengerjakan sesuatu di **area kerja**, tiba-tiba ada hal lain yang harus dikerjakan terlebih dulu. Gunakan `git stash` untuk menyimpan sementara perubahan tanpa harus melakukan `commit`.
+
+![git-stash](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20stash.gif?raw=true)
+
+Untuk mengembalikan perubahan yang di stash gunakan `git stash apply`
+
+### 14. Membandingkan Dengan `diff` 
+
+`git diff` dapat digunakan untuk membandingkan perubahan secara keseluruhan.
+
+`git diff [file1] [file2]` digunakan untuk membandingkan 2 file berbeda.
+
+`git diff [branch1]..[branch2]` digunakan untuk membandingkan perbedaan antara dua branch yang berbeda.
+
+## Contoh Project
+
+1. Buatlah sebuah folder dengan nama `my-blog`
+2. Masuk kedalam folder `my-blog`, lalu buat sebuah file dengan nama `index.html` sehingga struktur file kamu akan terlihat seperti berikut:
+
+```sh
+myblog
+-- index.html
+```
+
+4. Lalu buka `index.html` dengan kode editor atau notepad juga bisa kemudian tulis dan simpan kode dibawah ini didalam file index.html tersebut:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Blog</title>
+  </head>
+  <body>
+    <h1>Judul Postingan</h1>
+    <p>Isi Postingan</p>
+  </body>
+</html>
+```
+
+4. Ok, sekarang mari kita buat repository untuk project ini:
+
+- Dari terminal / command propmt masuk ke folder projek dengan perintah `cd my-blog`
+- Untuk inisialisasi  project gunakan perintah `git init`
+- Dan sekarang kita udah punya git repository di project my-blog kita.
+
+5. Buat commit pertama mu:
+
+- Jika kamu cek menggunakan perintah `git status`, kamu akan diberitahu bahwa belum ada file untuk di commit.
+- Gunakan perintah `git add index.html`
+- Sekarang cek lagi menggunakan `git status`, kamu akan diberitahu bahwa file `index.html` sudah di *tracked* atau berada di **staging area** yang artinya siap untuk dicommit
+- Sekarang lakukan commit, ketik:
+
+```sh
+git commit -m "inisialisasi my-blog" -m "ini adalah commit pertama untuk project my-blog"
+```
+
+<div class="info">
+<strong>📝 Catatan</strong>
+<p>Melakukan commit akan menjadi kebiasaan kamu saat mengerjakan project yang menggunakan git.</p>
+</div>
+
+Bagus, sekarang kamu sudah memulai project pertama mu menggunakan git. Selanjutnya kamu akan diberikan beberapa tantangan agar kamu semakin familiar dengan git.
+
+
+## 💪Tantangan
+
+### Tantangan Pertama
+
+Pada [contoh project](#contoh-project) `my-blog` diatas, **tambahkan sebuah file bernama `style.css`**. Sehingga struktur file project `my-blog` akan terlihat seperti:
+
+```sh
+myblog
+-- index.html
+-- style.css
+```
+
+Kemudian tulis dan simpan rule css berikut didalam file style.css: 
+
+```css
+body {
+    background: black;
+    color: white;
+}
+```
+
+Lalu simpan perubahan mu menggunakan commit, dengan pesan dan deskripsi commitnya bebas sesukamu.
+
+### Tantangan Kedua
+
+**Upload Project `my-blog` kamu ke github**:
+
+- Pertama buat sebuah repository baru di github dengan nama `Contoh-Project-Git`
+- Kemudian tambahkan alamat **remote repository** pada project `my-blog`
+- Lalu push project `my-blog` ke remote repository mu.
+
+Hasil akhir pada remote repository akan terlihat seperti [repo ini](https://github.com/kodekoki/Contoh-Project-Git) dan kamu akan memiliki [2 commit](https://github.com/kodekoki/Contoh-Project-Git/commits/master) di repo itu.
+
+### Tantangan Ketiga
+
+**Buat pull request pertama mu**. Untuk bisa berkontribusi dengan komunitas-komunitas yang ada di github, kamu akan terbiasa melakukan pull request. Untuk pemanasan lakukan kontribusi pertama mu pada sebuah project yang ada di repo kodekoki, silahkan ikuti instruksi yang ada [pada repo ini](https://github.com/kodekoki/Latihan-Pull-Request).
+
+<small class="referensi">
 Referensi:
 <div>- chris.beams.io/posts/git-commit </div>
 <div>- https://guides.github.com/introduction/git-handbook/#basic-git</div>
