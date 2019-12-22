@@ -14,6 +14,7 @@ import { graphql } from 'gatsby'
 import { object } from 'prop-types'
 
 const Post = ({ data }) => {
+  console.log('TCL: Post -> data', data)
   const { next, previous } = {}
   const { markdownRemark } = data
   const {
