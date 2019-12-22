@@ -27,13 +27,13 @@ const Post = ({ data }) => {
     modifiedDate,
   } = data.markdownRemark.frontmatter
   const { type } = data.markdownRemark.fields
-  const { timeToRead } = markdownRemark
+  const { timeToRead, excerpt } = markdownRemark
 
   return (
     <Layout>
       <SEO
         title={title}
-        description={description}
+        description={excerpt}
         image={image && image.childImageSharp.fluid.src}
       />
       <Header />
@@ -60,7 +60,7 @@ const Post = ({ data }) => {
                   __html: markdownRemark.html,
                 }}
               />
-              <TableOfContent headings={markdownRemark.headings} />
+              <TableOfContent headings={markdownRemark.tableOfContents} />
             </section>
           </main>
           <Tags tags={tags} />
@@ -82,14 +82,12 @@ export const querySnippetPostBySlug = graphql`
   query querySnippetPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       timeToRead
       fields {
         type
       }
-      headings {
-        value
-        depth
-      }
+      tableOfContents
       frontmatter {
         title
         description

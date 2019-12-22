@@ -382,10 +382,16 @@ export const Articles = styled.article`
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
 
+  & #content-article > ol > li {
+    line-height: 2;
+  }
   & main p > code,
   main span > code,
   main div > code,
   main strong > code,
+  main h2 > code,
+  main h3 > code,
+  main h4 > code,
   main li > code {
     display: inline-flex;
     overflow-x: auto;
@@ -507,6 +513,10 @@ export const Articles = styled.article`
   & img {
     border-radius: 0.2rem;
     max-width: 100%;
+  }
+  & .referensi {
+    display: block;
+    margin-top: 4rem;
   }
 `
 

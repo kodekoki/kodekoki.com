@@ -57,8 +57,8 @@ module.exports = {
         name: `kodekoki.com`,
         short_name: `kodekoki`,
         start_url: `/`,
-        background_color: configs.backgroundColor,
-        theme_color: configs.themeColor,
+        background_color: '#232526',
+        theme_color: `#00aeef`,
         display: `standalone`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
