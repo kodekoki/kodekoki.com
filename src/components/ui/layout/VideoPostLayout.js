@@ -60,7 +60,7 @@ const Post = ({ data }) => {
                   __html: markdownRemark.html,
                 }}
               />
-              <TableOfContent headings={markdownRemark.headings} />
+              <TableOfContent headings={markdownRemark.tableOfContents} />
             </section>
           </main>
           <Tags tags={tags} />
@@ -87,10 +87,7 @@ export const queryVideoPostBySlug = graphql`
       fields {
         type
       }
-      headings {
-        value
-        depth
-      }
+      tableOfContents
       frontmatter {
         title
         date
