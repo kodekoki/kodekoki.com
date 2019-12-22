@@ -82,7 +82,7 @@ const PageTitle = ({ backgroundColor, title, description, image }) => {
               }
             `}
           >
-            {image.src && <img alt="image-cover" src={image.src} />}
+            {image && image.src && <img alt="image-cover" src={image.src} />}
           </span>
         </section>
       </Section>
