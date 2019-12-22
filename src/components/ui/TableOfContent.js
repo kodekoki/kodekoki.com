@@ -1,7 +1,6 @@
 import React from 'react'
-import { Styled } from 'theme-ui'
 import css from '@emotion/css'
-import { array } from 'prop-types'
+import { string } from 'prop-types'
 import theme from './theme'
 
 const rootStyle = css`
@@ -36,48 +35,49 @@ const rootStyle = css`
   }
 
   & #title-toc {
-    padding-left: 1rem;
+    padding: 1rem;
+    padding-bottom: 0;
+    font-size: 0.825rem;
+    font-weight: bold;
+    @media only screen and (min-width: ${theme.breakpoints[0]}) {
+      display: none;
+    }
   }
 
-  & > div > h4 {
+  & li > p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  & li > p > a,
+  li > a {
+    border-bottom: 0 !important;
     font-size: 0.825rem;
   }
-  & > div > div,
-  > div > h4 {
-    margin: 0;
-    cursor: pointer;
-    padding: 1rem;
-    line-height: 1;
-    border: 1px solid rgba(0, 0, 0, 0.025);
+
+  & li {
+    list-style: none;
+    padding: 0.5rem 1rem;
     transition: all ease-in 0.2s;
+    border-left: 0 solid transparent;
     &:hover {
-      border-left: 3px solid rgba(0, 0, 0, 0.025);
-      background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      border-left: 3px solid transparent;
     }
   }
-  & div > div {
-    font-size: 0.75rem;
-    padding-left: 1.25rem;
-    &:first-of-type {
-      &:hover {
-        background-image: none;
-        -webkit-background-clip: none;
-        -webkit-text-fill-color: none;
-        border-left: 0 solid rgba(0, 0, 0, 0.025);
-      }
-      @media only screen and (min-width: ${theme.breakpoints[0]}) {
-        display: none;
-      }
-    }
+  & ul {
+    padding-inline-start: 0;
+  }
+
+  & > div > ul > li ul {
+    display: none;
   }
 `
 
 const styleOnFixed = css`
   position: relative;
   margin: 0 auto;
-  max-height: calc(100vh - 80px);
+  max-height: calc(100vh - 180px);
   @media only screen and (min-width: ${theme.breakpoints[0]}) {
     position: -webkit-sticky;
     position: sticky;
@@ -85,7 +85,7 @@ const styleOnFixed = css`
     margin: 0 0 0 2rem;
   }
 `
-const TITLE = 'ISI KONTEN:'
+const TITLE = 'Daftar Isi:'
 
 const TableOfContent = ({ headings }) => {
   const [fixed, setFixed] = React.useState(false)
@@ -98,28 +98,6 @@ const TableOfContent = ({ headings }) => {
     if (!isTop && fixed) setFixed(css``)
   }
 
-  const onTitleClick = (title, type) => {
-    const mainContent = document.getElementById('content-article')
-    const titles = mainContent.getElementsByTagName([type.toUpperCase()])
-    let target
-    for (let i = 0; i < titles.length; i++) {
-      const item = titles.item(i)
-      if (item.innerText === title) {
-        target = item
-        target.scrollIntoView()
-        window.scrollBy(0, -80)
-        return
-      }
-    }
-  }
-
-  function getHeading(nodeHeadings) {
-    return nodeHeadings.map(data => ({
-      title: data.value,
-      type: `h${data.depth}`,
-    }))
-  }
-
   React.useEffect(() => {
     window.addEventListener('scroll', trackingPosition)
     return () => {
@@ -127,31 +105,21 @@ const TableOfContent = ({ headings }) => {
     }
   }, [trackingPosition])
 
-  const listHeading = getHeading(headings)
-  return listHeading[0] ? (
+  // const listHeading = getHeading(headings)
+  return headings.length ? (
     <div id="table-of-content" css={[rootStyle, styleOnFixed]}>
-      <div>
-        <div id="title-toc">{TITLE}</div>
-        {listHeading.map((data, indexData) => (
-          <React.Fragment key={indexData}>
-            {data.type === 'h2' && (
-              <Styled.h4 onClick={() => onTitleClick(data.title, data.type)}>
-                <strong>{data.title}</strong>
-              </Styled.h4>
-            )}
-            {data.type === 'h3' && (
-              <div onClick={() => onTitleClick(data.title, data.type)}>
-                {data.title}
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </div>
+      <div id="title-toc">{TITLE}</div>
+      <div
+        id="list-toc"
+        dangerouslySetInnerHTML={{
+          __html: headings,
+        }}
+      />
     </div>
   ) : null
 }
 
 TableOfContent.propTypes = {
-  headings: array,
+  headings: string,
 }
 export default TableOfContent
