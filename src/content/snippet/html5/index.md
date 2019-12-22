@@ -5,10 +5,11 @@ modifiedDate: 2019-12-23
 author: Dwiki Arlan
 featured: false
 published: true
-image: ./cover.jpg
+image: ../cover.jpg
 description: Template HTML5 Untuk Buat Project Baru Dengan Cepat
 category:
 - template
+- html
 tags:
 - html5
 
