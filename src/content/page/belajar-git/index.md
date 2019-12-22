@@ -189,7 +189,7 @@ $ git add catatan.txt
 
 File dipindahkan ke **Staging Area**
 
-Tips: Untuk menambahkan banyak file sekaligus gunakan `git add --all` atau `git add .`
+**Tips:** Untuk menambahkan banyak file sekaligus gunakan `git add --all` atau `git add .`
 
 ### 4. Commit File
 
@@ -258,7 +258,7 @@ Setiap repository menggunakan branch `master` sebagai branch utamanya. Branching
 
 Artinya suatu branch dapat menyimpan versi baru dari suatu proyek tanpa merubah apapun dari versi aslinya.
 
-ilustrasi branching ([sumber](https://rubygarage.s3.amazonaws.com/uploads/article_image/file/605/git-branches.jpg)):
+Ilustrasi branching ([dari rubygarage](https://rubygarage.s3.amazonaws.com/uploads/article_image/file/605/git-branches.jpg)):
 ![branching](https://github.com/kodekoki/gallery/blob/master/snippet/belajar-git/git%20branching.jpg?raw=true)
 
 Pada contoh diatas terdapat 3 branch tambahan selain master:

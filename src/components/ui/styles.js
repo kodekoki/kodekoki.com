@@ -391,6 +391,7 @@ export const Articles = styled.article`
   main strong > code,
   main h2 > code,
   main h3 > code,
+  main h4 > code,
   main li > code {
     display: inline-flex;
     overflow-x: auto;
