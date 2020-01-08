@@ -361,7 +361,7 @@ export const Articles = styled.article`
     height: 100%;
   }
   & main #content-article > h2 {
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin-top: 4rem;
   }
 
@@ -416,13 +416,13 @@ export const Articles = styled.article`
     z-index: 0;
     display: inline;
     position: relative;
-    bottom: -46px;
+    bottom: -6px;
     font-size: 0.75rem;
     border-radius: 2px;
   }
 
   & .gatsby-code-button-container {
-    top: 45px;
+    top: 12px;
     z-index: 0;
     & div > svg {
       fill: #12c2e9;
@@ -437,7 +437,7 @@ export const Articles = styled.article`
       }
     }
     @media only screen and (min-width: ${theme.breakpoints[0]}) {
-      top: 50px;
+      top: 10px;
     }
   }
 
@@ -479,10 +479,16 @@ export const Articles = styled.article`
   & main li {
     color: rgba(0, 0, 0, 0.8);
   }
+  & pre[class*='language-'] {
+    margin-top: -2rem;
+  }
   & .gatsby-highlight {
     display: block;
     border-radius: 0.2rem;
     margin: 1rem 0;
+  }
+  & .gatsby-highlight-code-line {
+    background: #2c2d2d;
   }
   & main pre > code {
     font-size: 0.75rem;
@@ -513,6 +519,8 @@ export const Articles = styled.article`
   & img {
     border-radius: 0.2rem;
     max-width: 100%;
+    display: flex;
+    margin: 0 auto;
   }
   & .referensi {
     display: block;
