@@ -378,7 +378,7 @@ myblog
 
 4. Ok, sekarang mari kita buat repository untuk project ini:
 
-- Dari terminal / command propmt masuk ke folder projek dengan perintah `cd my-blog`
+- Dari terminal / command propmt masuk ke folder proyek dengan perintah `cd my-blog`
 - Untuk inisialisasi  project gunakan perintah `git init`
 - Dan sekarang kita udah punya git repository di project my-blog kita.
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Styled } from 'theme-ui'
 import { Link } from 'gatsby'
 import { StyledHeader, Nav, SvgWrapper } from './styles'
-import WhiteLogo from '../../assets/logo-white.svg'
+import Logo from '../../assets/logo-white.svg'
 import configs from '../../../configs/index'
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
             }}
           >
             <SvgWrapper width="34px" style={{ marginRight: 10 }}>
-              <WhiteLogo />
+              <Logo />
             </SvgWrapper>
             <Styled.h2
               style={{ color: '#fff', margin: 0, fontSize: '1rem' }}
