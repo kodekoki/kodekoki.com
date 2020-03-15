@@ -24,15 +24,7 @@ const LabelInfo = ({ field, value, isDate }) => (
   <span css={rootStyle}>
     <span css={fieldStyle}>{field}</span>
     <span css={valueStyle}>
-      <strong>
-        {isDate ? (
-          <time dateTime={new Date(value)}>
-            {new Date(value).toLocaleDateString()}
-          </time>
-        ) : (
-          value
-        )}
-      </strong>
+      <strong>{isDate ? <time dateTime={isDate}>{value}</time> : value}</strong>
     </span>
   </span>
 )
@@ -40,6 +32,6 @@ LabelInfo.propTypes = {
   field: string,
   value: oneOfType([string, node]),
   color: string,
-  isDate: bool,
+  isDate: string,
 }
 export default LabelInfo

@@ -13,22 +13,24 @@ const constant = {
 
 const ArticleInfo = ({
   type = 'tips',
-  date = new Date().toISOString(),
-  modifiedDate = new Date().toISOString(),
+  date,
+  modifiedDate,
   author,
   timeReading,
+  modifiedDateFormatted,
+  dateFormatted,
 }) => (
   <div css={styleInfo}>
     {type && <BreadCrumb type={type} />}
     <LabelInfo
       field={constant.CREATED_AT}
-      value={new Date(date).toLocaleDateString()}
-      isDate
+      value={dateFormatted}
+      isDate={date}
     />
     <LabelInfo
       field={constant.UPDATED_AT}
-      value={new Date(modifiedDate || date).toLocaleDateString()}
-      isDate
+      value={modifiedDateFormatted || dateFormatted}
+      isDate={modifiedDate || date}
     />
     <LabelInfo field={constant.READ_TIME} value={`${timeReading} menit`} />
     <LabelInfo field={constant.AUTHOR} value={author} />
@@ -38,6 +40,8 @@ const ArticleInfo = ({
 ArticleInfo.propTypes = {
   date: string,
   modifiedDate: string,
+  dateFormatted: string,
+  modifiedDateFormatted: string,
   type: string,
   author: string,
   timeReading: number,

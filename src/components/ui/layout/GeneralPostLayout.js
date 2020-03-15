@@ -19,13 +19,19 @@ const Post = ({ data }) => {
   const {
     title,
     description,
-    date,
     image,
     author,
     tags,
     videoId,
+    date,
     modifiedDate,
+    dateFormatted,
+    modifiedDateFormatted,
   } = data.markdownRemark.frontmatter
+  console.log(
+    'Post -> data.markdownRemark.frontmatter',
+    data.markdownRemark.frontmatter
+  )
   const { timeToRead, excerpt } = markdownRemark
 
   return (
@@ -47,6 +53,8 @@ const Post = ({ data }) => {
             type={null}
             date={date}
             modifiedDate={modifiedDate}
+            dateFormatted={dateFormatted}
+            modifiedDateFormatted={modifiedDateFormatted}
             timeReading={timeToRead}
             author={author}
           />
@@ -92,6 +100,8 @@ export const queryPostBySlug = graphql`
         description
         date
         modifiedDate
+        dateFormatted: date(formatString: "DD/MM/YYYY")
+        modifiedDateFormatted: modifiedDate(formatString: "DD/MM/YYYY")
         category
         tags
         author
