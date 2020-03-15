@@ -25,6 +25,8 @@ const Post = ({ data }) => {
     tags,
     videoId,
     modifiedDate,
+    dateFormatted,
+    modifiedDateFormatted,
   } = data.markdownRemark.frontmatter
   const { type } = data.markdownRemark.fields
   const { timeToRead, excerpt } = markdownRemark
@@ -48,6 +50,8 @@ const Post = ({ data }) => {
             type={type}
             date={date}
             modifiedDate={modifiedDate}
+            dateFormatted={dateFormatted}
+            modifiedDateFormatted={modifiedDateFormatted}
             timeReading={timeToRead}
             author={author}
           />
@@ -93,6 +97,8 @@ export const querySnippetPostBySlug = graphql`
         description
         date
         modifiedDate
+        dateFormatted: date(formatString: "DD/MM/YYYY")
+        modifiedDateFormatted: modifiedDate(formatString: "DD/MM/YYYY")
         category
         tags
         author

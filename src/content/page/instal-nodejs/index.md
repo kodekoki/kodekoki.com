@@ -1,7 +1,7 @@
 ---
 title: Cara Install Node.js & npm pada windows, mac & linux
-date: 2020-08-01
-modifiedDate: 2020-08-01
+date: 2020-01-08
+modifiedDate: 2020-01-08
 author: Dwiki Arlan
 featured: false
 published: true
