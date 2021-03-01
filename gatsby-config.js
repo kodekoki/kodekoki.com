@@ -173,41 +173,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-mdx`,
-    //   options: {
-    //     defaultLayouts: {
-    //       default: here('./src/templates/markdown-page.js'),
-    //     },
-    //     extensions: ['.mdx', '.md', '.markdown'],
-    //     gatsbyRemarkPlugins: [
-    //       { resolve: 'gatsby-remark-copy-linked-files' },
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           backgroundColor: '#fafafa',
-    //           maxWidth: 1035,
-    //         },
-    //       },
-    //       { resolve: 'gatsby-remark-embedder' },
-    //     ],
-    //   },
-    // },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `PT Serif`,
-            variants: [`400`, `700`],
-          },
-        ],
-      },
-    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-emotion',
     {

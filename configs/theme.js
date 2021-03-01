@@ -1,8 +1,3 @@
-const fonts = {
-  roboto: `Roboto, Segoe UI, Tahoma, Geneva, Verdana, sans-serif`,
-  ptserif: `PT Serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Helvetica Neue, sans-serif`,
-}
-
 const lightColor = {
   primary: '#004271',
   secondary: '#004271',
@@ -24,7 +19,6 @@ const lightColor = {
 }
 
 const theme = {
-  fonts,
   breakpoints: {
     xs: '400px',
     s: '600px',
