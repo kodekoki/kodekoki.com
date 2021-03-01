@@ -6,7 +6,7 @@ author: Dwiki Arlan
 featured: false
 published: true
 image: ../cover.jpg
-description: Template HTML5 Untuk Buat Project Baru Dengan Cepat
+description: Ternyata button ngga harus selalu berada di dalam form
 category:
   - html
 tags:
@@ -14,7 +14,7 @@ tags:
   - form
 ---
 
-Kita bisa menempatkan sebuah tombol atau button diluar form, untuk men trigger `onsubmit` event pada sebuah form. Syaratnya form harus di beri sebuah id, contohnya `<form id="form-contact" ...` kemudian pada button submit kita tinggal refer dengan memberi properti form pada button seperti `<button form="form-contact" ...`
+Kita bisa menempatkan sebuah tombol atau button diluar form, untuk men-trigger `onsubmit` event pada sebuah form. Syaratnya form harus di beri sebuah id, contohnya `<form id="form-contact" ...` kemudian pada button submit kita tinggal refer dengan memberi properti form pada button seperti `<button form="form-contact" ...`
 
 Contoh lengkapnya seperti dibawah ini:
 
